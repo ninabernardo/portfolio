@@ -32,10 +32,8 @@
     --nav-h: 58px;
   }
 
-  /* This page commits to a single light treatment. Every color is painted
-     explicitly from the tokens above so it renders identically in any host theme. */
-
   * { box-sizing: border-box; }
+
   html {
     scroll-behavior: smooth;
     scroll-padding-top: calc(var(--nav-h) + 24px);
@@ -53,408 +51,1021 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  .shell { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 3rem); }
+  .shell {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 3rem);
+  }
 
   a { color: var(--accent); text-underline-offset: 3px; }
   a:hover { color: var(--accent-2); }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
 
   .lbl {
-    font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--ink-3); margin: 0;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0;
   }
 
   /* ===================== NAV ===================== */
 
   .nav {
-    position: sticky; top: 0; z-index: 50; height: var(--nav-h);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    height: var(--nav-h);
     background: color-mix(in srgb, var(--ground) 88%, transparent);
     backdrop-filter: saturate(180%) blur(12px);
     -webkit-backdrop-filter: saturate(180%) blur(12px);
     border-bottom: 1px solid var(--rule);
   }
+
   .nav__inner {
-    max-width: 1200px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 3rem);
-    height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 3rem);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
   }
+
   .nav__brand {
-    font-family: var(--sans); font-weight: 600; font-size: 0.95rem;
-    letter-spacing: -0.015em; color: var(--ink); text-decoration: none; white-space: nowrap;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    text-decoration: none;
+    white-space: nowrap;
   }
-  .nav__brand span { color: var(--ink-3); font-weight: 400; }
-  .nav__links { display: none; gap: 1.4rem; align-items: center; }
-  @media (min-width: 900px) { .nav__links { display: flex; } }
+
+  .nav__brand span {
+    color: var(--ink-3);
+    font-weight: 400;
+  }
+
+  .nav__links {
+    display: none;
+    gap: 1.4rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .nav__links { display: flex; }
+  }
+
   .nav__links a {
-    font-family: var(--mono); font-size: 0.71rem; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--ink-3); text-decoration: none; padding: 0.35rem 0;
-    border-bottom: 1px solid transparent; transition: color .18s ease, border-color .18s ease;
+    font-family: var(--mono);
+    font-size: 0.71rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    text-decoration: none;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid transparent;
+    transition: color .18s ease, border-color .18s ease;
   }
+
   .nav__links a:hover { color: var(--ink); }
-  .nav__links a.is-active { color: var(--accent); border-bottom-color: var(--accent); }
-  .nav__right { display: flex; align-items: center; gap: 0.85rem; }
+  .nav__links a.is-active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .nav__right {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
   .nav__cta {
-    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-decoration: none;
-    color: var(--surface); background: var(--accent); padding: 0.5rem 0.9rem; white-space: nowrap;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    color: var(--surface);
+    background: var(--accent);
+    padding: 0.5rem 0.9rem;
+    white-space: nowrap;
     transition: background .18s ease;
   }
-  .nav__cta:hover { background: var(--accent-2); color: var(--surface); }
-  .nav__li {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 30px; height: 30px; color: var(--ink-3);
-    border: 1px solid var(--rule-2); transition: color .18s ease, border-color .18s ease;
-  }
-  .nav__li:hover { color: var(--accent); border-color: var(--accent); }
-  .nav__li svg { width: 15px; height: 15px; display: block; }
 
-  .inlink { display: inline-flex; align-items: center; gap: 0.45rem; }
-  .inlink svg { width: 15px; height: 15px; flex: none; }
-  .progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 0%; background: var(--accent); }
+  .nav__cta:hover {
+    background: var(--accent-2);
+    color: var(--surface);
+  }
+
+  .nav__li {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    color: var(--ink-3);
+    border: 1px solid var(--rule-2);
+    transition: color .18s ease, border-color .18s ease;
+  }
+
+  .nav__li:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .nav__li svg {
+    width: 15px;
+    height: 15px;
+    display: block;
+  }
+
+  .inlink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .inlink svg {
+    width: 15px;
+    height: 15px;
+    flex: none;
+  }
+
+  .progress {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 2px;
+    width: 0%;
+    background: var(--accent);
+  }
 
   /* ===================== HERO ===================== */
 
-  .hero { padding: clamp(3rem, 8vw, 6rem) 0 clamp(2rem, 4vw, 3rem); }
-  .hero__tag { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-bottom: 1.75rem; }
+  .hero {
+    padding: clamp(3rem, 8vw, 6rem) 0 clamp(2rem, 4vw, 3rem);
+  }
+
+  .hero__tag {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 1.75rem;
+  }
+
   .hero h1 {
-    font-family: var(--sans); font-weight: 600;
-    font-size: clamp(2.3rem, 6.5vw, 4.6rem); line-height: 0.99; letter-spacing: -0.042em;
-    text-wrap: balance; margin: 0 0 1.4rem; max-width: 17ch;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: clamp(2.3rem, 6.5vw, 4.6rem);
+    line-height: 0.99;
+    letter-spacing: -0.042em;
+    text-wrap: balance;
+    margin: 0 0 1.4rem;
+    max-width: 17ch;
   }
-  .hero h1 em { font-style: normal; color: var(--accent); }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
   .hero__lede {
-    font-size: clamp(1.05rem, 1.8vw, 1.28rem); line-height: 1.45; color: var(--ink-2);
-    max-width: 50ch; margin: 0 0 2rem;
+    font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+    line-height: 1.45;
+    color: var(--ink-2);
+    max-width: 50ch;
+    margin: 0 0 2rem;
   }
-  .hero__actions { display: flex; flex-wrap: wrap; gap: 0.7rem 1.1rem; align-items: center; }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem 1.1rem;
+    align-items: center;
+  }
 
   .btn {
-    font-family: var(--mono); font-size: 0.77rem; letter-spacing: 0.06em; text-decoration: none;
-    padding: 0.68rem 1.1rem; border: 1px solid var(--accent); color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.77rem;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    padding: 0.68rem 1.1rem;
+    border: 1px solid var(--accent);
+    color: var(--accent);
     transition: background .18s ease, color .18s ease;
   }
-  .btn:hover { background: var(--accent); color: var(--surface); }
-  .btn--solid { background: var(--accent); color: var(--surface); }
-  .btn--solid:hover { background: var(--accent-2); border-color: var(--accent-2); color: var(--surface); }
+
+  .btn:hover {
+    background: var(--accent);
+    color: var(--surface);
+  }
+
+  .btn--solid {
+    background: var(--accent);
+    color: var(--surface);
+  }
+
+  .btn--solid:hover {
+    background: var(--accent-2);
+    border-color: var(--accent-2);
+    color: var(--surface);
+  }
 
   /* ===================== INDEX CARDS ===================== */
 
   .index {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(198px, 1fr));
-    gap: 1px; background: var(--rule-2);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(198px, 1fr));
+    gap: 1px;
+    background: var(--rule-2);
     border: 1px solid var(--rule-2);
     margin-bottom: clamp(2rem, 4vw, 3rem);
   }
+
   .icard {
-    background: var(--ground); padding: 1.1rem 1.1rem 1.25rem;
-    text-decoration: none; display: flex; flex-direction: column; gap: 0.7rem;
+    background: var(--ground);
+    padding: 1.1rem 1.1rem 1.25rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
     transition: background .2s ease;
   }
+
   .icard:hover { background: var(--surface); }
   .icard:hover .icard__t { color: var(--accent); }
+
   .icard__n {
-    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: var(--accent);
   }
+
   .icard__g { color: var(--rule-2); }
   .icard:hover .icard__g { color: var(--accent); }
-  .icard__g svg { display: block; width: 100%; height: 34px; }
-  .icard__t {
-    font-family: var(--sans); font-size: 0.97rem; font-weight: 600; line-height: 1.2;
-    letter-spacing: -0.018em; color: var(--ink); transition: color .2s ease;
+
+  .icard__g svg {
+    display: block;
+    width: 100%;
+    height: 34px;
   }
+
+  .icard__t {
+    font-family: var(--sans);
+    font-size: 0.97rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+    transition: color .2s ease;
+  }
+
   .icard__d {
-    font-family: var(--serif); font-size: 0.87rem; line-height: 1.38; color: var(--ink-2);
+    font-family: var(--serif);
+    font-size: 0.87rem;
+    line-height: 1.38;
+    color: var(--ink-2);
     margin-top: -0.35rem;
   }
+
   .icard__s {
-    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.07em; text-transform: uppercase;
-    color: var(--ink-3); line-height: 1.55; margin-top: auto; padding-top: 0.55rem;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    line-height: 1.55;
+    margin-top: auto;
+    padding-top: 0.55rem;
     border-top: 1px solid var(--rule);
   }
 
   /* ===================== NOTE ===================== */
 
   .note {
-    padding: 1.15rem 1.4rem 1.25rem; background: var(--warn-soft);
-    border-left: 3px solid var(--warn-line); max-width: 74ch;
+    padding: 1.15rem 1.4rem 1.25rem;
+    background: var(--warn-soft);
+    border-left: 3px solid var(--warn-line);
+    max-width: 74ch;
     margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
   }
-  .note p { margin: 0.5rem 0 0; font-size: 0.92rem; line-height: 1.5; color: var(--ink-2); }
+
+  .note p {
+    margin: 0.5rem 0 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
 
   .badge {
-    display: inline-block; font-family: var(--mono); font-size: 0.6rem;
-    letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2);
-    background: var(--warn-soft); border: 1px solid var(--warn-line); padding: 0.22rem 0.5rem;
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    background: var(--warn-soft);
+    border: 1px solid var(--warn-line);
+    padding: 0.22rem 0.5rem;
   }
 
   /* ===================== CASES ===================== */
 
   .cases { padding: clamp(2rem, 4vw, 3rem) 0 0; }
-  .case { padding: clamp(2.75rem, 5vw, 4.25rem) 0; border-top: 1px solid var(--rule-2); }
 
-  .case__grid { display: grid; grid-template-columns: 1fr; gap: 1.75rem; }
+  .case {
+    padding: clamp(2.75rem, 5vw, 4.25rem) 0;
+    border-top: 1px solid var(--rule-2);
+  }
+
+  .case__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
   @media (min-width: 1000px) {
-    .case__grid { grid-template-columns: 215px 1fr; column-gap: 3.5rem; }
-    .case__aside { position: sticky; top: calc(var(--nav-h) + 2.25rem); align-self: start; }
+    .case__grid {
+      grid-template-columns: 215px 1fr;
+      column-gap: 3.5rem;
+    }
+
+    .case__aside {
+      position: sticky;
+      top: calc(var(--nav-h) + 2.25rem);
+      align-self: start;
+    }
   }
 
   .case__num {
-    font-family: var(--mono); font-size: 0.73rem; letter-spacing: 0.1em; color: var(--accent);
-    display: block; margin-bottom: 0.85rem; padding-bottom: 0.65rem; border-bottom: 1px solid var(--rule-2);
+    font-family: var(--mono);
+    font-size: 0.73rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid var(--rule-2);
   }
-  .case__facts { display: grid; gap: 0.85rem; margin: 0 0 1.1rem; }
+
+  .case__facts {
+    display: grid;
+    gap: 0.85rem;
+    margin: 0 0 1.1rem;
+  }
+
   .case__facts dt { margin-bottom: 0.18rem; }
-  .case__facts dd { margin: 0; font-family: var(--sans); font-size: 0.84rem; line-height: 1.4; color: var(--ink); }
+
+  .case__facts dd {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 0.84rem;
+    line-height: 1.4;
+    color: var(--ink);
+  }
 
   .case h2 {
-    font-family: var(--sans); font-weight: 600;
-    font-size: clamp(1.6rem, 3.2vw, 2.3rem); line-height: 1.07; letter-spacing: -0.03em;
-    text-wrap: balance; margin: 0 0 0.9rem; max-width: 21ch;
-  }
-  .premise {
-    font-size: clamp(1.02rem, 1.5vw, 1.15rem); line-height: 1.45; color: var(--ink-2);
-    max-width: 56ch; margin: 0 0 1.75rem; padding-left: 1rem; border-left: 2px solid var(--accent);
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+    line-height: 1.07;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+    margin: 0 0 0.9rem;
+    max-width: 21ch;
   }
 
-  /* --------- situation strip --------- */
+  .premise {
+    font-size: clamp(1.02rem, 1.5vw, 1.15rem);
+    line-height: 1.45;
+    color: var(--ink-2);
+    max-width: 56ch;
+    margin: 0 0 1.75rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--accent);
+  }
 
   .sit {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
-    gap: 1px; background: var(--rule); border: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
     margin-bottom: 1.75rem;
   }
-  .sit div { background: var(--ground); padding: 0.85rem 0.95rem 0.95rem; }
+
+  .sit div {
+    background: var(--ground);
+    padding: 0.85rem 0.95rem 0.95rem;
+  }
+
   .sit dt {
-    font-family: var(--mono); font-size: 0.61rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--ink-3); margin-bottom: 0.35rem;
+    font-family: var(--mono);
+    font-size: 0.61rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.35rem;
   }
+
   .sit dd {
-    margin: 0; font-family: var(--sans); font-size: 0.87rem; line-height: 1.35; color: var(--ink);
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 0.87rem;
+    line-height: 1.35;
+    color: var(--ink);
   }
 
-  .lead { max-width: 62ch; margin: 0 0 1.9rem; font-size: 1.02rem; }
-
-  /* --------- surfaced diagram --------- */
+  .lead {
+    max-width: 62ch;
+    margin: 0 0 1.9rem;
+    font-size: 1.02rem;
+  }
 
   .dia {
-    background: var(--surface); border: 1px solid var(--rule-2);
-    padding: 1.4rem 1.2rem 1.5rem; margin-bottom: 1.9rem; box-shadow: var(--shadow);
+    background: var(--surface);
+    border: 1px solid var(--rule-2);
+    padding: 1.4rem 1.2rem 1.5rem;
+    margin-bottom: 1.9rem;
+    box-shadow: var(--shadow);
   }
+
   .dia__h {
-    display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; align-items: baseline;
-    margin-bottom: 1.35rem; padding-bottom: 0.7rem; border-bottom: 1px solid var(--rule);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+    align-items: baseline;
+    margin-bottom: 1.35rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--rule);
   }
+
   .dia__h b {
-    font-family: var(--sans); font-size: 0.93rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
+    font-family: var(--sans);
+    font-size: 0.93rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
   }
+
   .dia__note {
-    font-family: var(--mono); font-size: 0.68rem; line-height: 1.5; color: var(--ink-3);
-    margin: 1.2rem 0 0; padding-top: 0.9rem; border-top: 1px dashed var(--rule);
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    line-height: 1.5;
+    color: var(--ink-3);
+    margin: 1.2rem 0 0;
+    padding-top: 0.9rem;
+    border-top: 1px dashed var(--rule);
   }
 
-  /* --------- flow engine --------- */
+  .flowwrap {
+    overflow-x: auto;
+    padding-bottom: 0.2rem;
+  }
 
-  .flowwrap { overflow-x: auto; padding-bottom: 0.2rem; }
-  .flow { display: grid; justify-items: center; gap: 0; font-family: var(--sans); }
-  .flow > * { width: 100%; max-width: 390px; }
-  .flow > * + * { margin-top: 26px; position: relative; }
+  .flow {
+    display: grid;
+    justify-items: center;
+    gap: 0;
+    font-family: var(--sans);
+  }
+
+  .flow > * {
+    width: 100%;
+    max-width: 390px;
+  }
+
+  .flow > * + * {
+    margin-top: 26px;
+    position: relative;
+  }
+
   .flow > * + *::before {
-    content: ""; position: absolute; top: -26px; left: 50%;
-    width: 1px; height: 26px; background: var(--rule-2);
+    content: "";
+    position: absolute;
+    top: -26px;
+    left: 50%;
+    width: 1px;
+    height: 26px;
+    background: var(--rule-2);
   }
+
   .flow > * + *::after {
-    content: ""; position: absolute; top: -10px; left: 50%; width: 6px; height: 6px;
-    border-right: 1px solid var(--rule-2); border-bottom: 1px solid var(--rule-2);
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    border-right: 1px solid var(--rule-2);
+    border-bottom: 1px solid var(--rule-2);
     transform: translateX(-50%) rotate(45deg);
   }
 
   .step {
-    background: var(--ground); border: 1px solid var(--rule-2);
-    padding: 0.55rem 0.8rem; font-size: 0.83rem; line-height: 1.3; text-align: center; color: var(--ink);
+    background: var(--ground);
+    border: 1px solid var(--rule-2);
+    padding: 0.55rem 0.8rem;
+    font-size: 0.83rem;
+    line-height: 1.3;
+    text-align: center;
+    color: var(--ink);
   }
-  .step--start, .step--end { border-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
-  .step--dec { border-color: var(--accent); border-style: dashed; background: var(--ground); }
-  .step--dec b { display: block; font-weight: 600; }
+
+  .step--start,
+  .step--end {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    font-weight: 600;
+  }
+
+  .step--dec {
+    border-color: var(--accent);
+    border-style: dashed;
+    background: var(--ground);
+  }
+
+  .step--dec b {
+    display: block;
+    font-weight: 600;
+  }
+
   .step--dec i {
-    display: block; font-style: normal; font-family: var(--mono);
-    font-size: 0.66rem; color: var(--ink-2); margin-top: 0.28rem;
+    display: block;
+    font-style: normal;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    color: var(--ink-2);
+    margin-top: 0.28rem;
   }
+
   .split {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(112px, 1fr)); gap: 7px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+    gap: 7px;
     max-width: 440px !important;
   }
-  .split .opt {
-    background: var(--surface-2); border: 1px solid var(--rule);
-    padding: 0.45rem 0.55rem; font-size: 0.77rem; line-height: 1.28; text-align: center; color: var(--ink);
-  }
-  .flow__cap {
-    font-family: var(--mono); font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--ink-3); text-align: center; max-width: 390px !important;
-  }
-  .flow__cap + * { margin-top: 11px !important; }
-  .flow__cap + *::before, .flow__cap + *::after { display: none; }
 
-  /* horizontal variant */
+  .split .opt {
+    background: var(--surface-2);
+    border: 1px solid var(--rule);
+    padding: 0.45rem 0.55rem;
+    font-size: 0.77rem;
+    line-height: 1.28;
+    text-align: center;
+    color: var(--ink);
+  }
+
+  .flow__cap {
+    font-family: var(--mono);
+    font-size: 0.63rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    text-align: center;
+    max-width: 390px !important;
+  }
+
+  .flow__cap + * { margin-top: 11px !important; }
+
+  .flow__cap + *::before,
+  .flow__cap + *::after {
+    display: none;
+  }
+
   @media (min-width: 780px) {
-    .flow--h { grid-auto-flow: column; grid-auto-columns: 1fr; align-items: stretch; justify-items: stretch; }
-    .flow--h > * { max-width: none !important; display: flex; align-items: center; justify-content: center; }
-    .flow--h > * + * { margin-top: 0; margin-left: 24px; }
-    .flow--h > * + *::before { top: 50%; left: -24px; width: 24px; height: 1px; }
-    .flow--h > * + *::after { top: 50%; left: -8px; transform: translate(-50%, -50%) rotate(-45deg); }
+    .flow--h {
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+      align-items: stretch;
+      justify-items: stretch;
+    }
+
+    .flow--h > * {
+      max-width: none !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .flow--h > * + * {
+      margin-top: 0;
+      margin-left: 24px;
+    }
+
+    .flow--h > * + *::before {
+      top: 50%;
+      left: -24px;
+      width: 24px;
+      height: 1px;
+    }
+
+    .flow--h > * + *::after {
+      top: 50%;
+      left: -8px;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
     .flow--h .step { width: 100%; }
     .flow--h .step--dec { display: block; }
   }
 
-  .flowpair { display: grid; grid-template-columns: 1fr; gap: 1.75rem; }
-  .flowpair section { min-width: 0; }
-  .flowpair h4 {
-    font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--ink-3); margin: 0 0 0.9rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--rule);
+  .flowpair {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
   }
-  .flowpair h4 b { color: var(--accent); font-weight: 500; }
 
-  /* --------- stat cards --------- */
+  .flowpair section { min-width: 0; }
+
+  .flowpair h4 {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 0.9rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .flowpair h4 b {
+    color: var(--accent);
+    font-weight: 500;
+  }
 
   .stats {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-    gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin-bottom: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    gap: 1px;
+    background: var(--rule-2);
+    border: 1px solid var(--rule-2);
+    margin-bottom: 1.25rem;
   }
-  .stat { background: var(--surface); padding: 1rem 1.1rem 1.15rem; display: grid; gap: 0.35rem; }
+
+  .stat {
+    background: var(--surface);
+    padding: 1rem 1.1rem 1.15rem;
+    display: grid;
+    gap: 0.35rem;
+  }
+
   .stat__k {
-    font-family: var(--mono); font-size: 0.59rem; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.59rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
   }
+
   .stat__v {
-    font-family: var(--sans); font-size: 1.06rem; font-weight: 600;
-    letter-spacing: -0.02em; line-height: 1.2; color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1.06rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--ink);
   }
+
   .stat__n {
-    font-family: var(--sans); font-size: 0.79rem; line-height: 1.4; color: var(--ink-2);
+    font-family: var(--sans);
+    font-size: 0.79rem;
+    line-height: 1.4;
+    color: var(--ink-2);
   }
+
   .stats__cap {
-    font-family: var(--mono); font-size: 0.65rem; line-height: 1.5; color: var(--ink-3);
-    margin: 0 0 1.9rem; max-width: 74ch;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    line-height: 1.5;
+    color: var(--ink-3);
+    margin: 0 0 1.9rem;
+    max-width: 74ch;
   }
 
-  /* --------- artifacts disclosure --------- */
+  .arts {
+    max-width: 82ch;
+    margin: 0 0 1.6rem;
+    border: 1px solid var(--rule-2);
+    background: var(--surface);
+  }
 
-  .arts { max-width: 82ch; margin: 0 0 1.6rem; border: 1px solid var(--rule-2); background: var(--surface); }
   .arts > summary {
-    list-style: none; cursor: pointer; padding: 0.9rem 1.15rem;
-    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase;
-    color: var(--ink-2); transition: background .18s ease, color .18s ease;
+    list-style: none;
+    cursor: pointer;
+    padding: 0.9rem 1.15rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    transition: background .18s ease, color .18s ease;
   }
+
   .arts > summary::-webkit-details-marker { display: none; }
-  .arts > summary:hover { background: var(--surface-2); color: var(--ink); }
-  .arts > summary .tog { font-size: 0.67rem; color: var(--accent); white-space: nowrap; }
-  .arts[open] > summary { border-bottom: 1px solid var(--rule); }
+
+  .arts > summary:hover {
+    background: var(--surface-2);
+    color: var(--ink);
+  }
+
+  .arts > summary .tog {
+    font-size: 0.67rem;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .arts[open] > summary {
+    border-bottom: 1px solid var(--rule);
+  }
+
   .arts[open] > summary .tog::before { content: "Hide \2014 "; }
   .arts:not([open]) > summary .tog::before { content: "Open \2014 "; }
-  .arts__body { padding: 1.4rem 1.15rem 1.6rem; }
+
+  .arts__body {
+    padding: 1.4rem 1.15rem 1.6rem;
+  }
+
   .arts__body > * + * { margin-top: 1.7rem; }
 
   .art__h {
-    font-family: var(--sans); font-size: 0.92rem; font-weight: 600; letter-spacing: -0.01em;
-    color: var(--ink); margin: 0 0 0.7rem; padding-bottom: 0.35rem; border-bottom: 1px solid var(--rule);
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0 0 0.7rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--rule);
   }
 
-  .req { border-left: 2px solid var(--accent); padding: 0.1rem 0 0.1rem 0.95rem; margin-bottom: 1rem; }
-  .req__id {
-    font-family: var(--mono); font-size: 0.69rem; letter-spacing: 0.09em; color: var(--accent);
-    display: block; margin-bottom: 0.28rem;
+  .req {
+    border-left: 2px solid var(--accent);
+    padding: 0.1rem 0 0.1rem 0.95rem;
+    margin-bottom: 1rem;
   }
-  .req p { margin: 0 0 0.5rem; font-size: 0.95rem; }
+
+  .req__id {
+    font-family: var(--mono);
+    font-size: 0.69rem;
+    letter-spacing: 0.09em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.28rem;
+  }
+
+  .req p {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+  }
+
   .req p:last-child { margin-bottom: 0; }
-  .req ul { margin: 0.45rem 0 0; padding-left: 1.05rem; font-size: 0.9rem; color: var(--ink-2); }
+
+  .req ul {
+    margin: 0.45rem 0 0;
+    padding-left: 1.05rem;
+    font-size: 0.9rem;
+    color: var(--ink-2);
+  }
+
   .req li { margin-bottom: 0.2rem; }
 
   .gwt {
-    font-family: var(--mono); font-size: 0.76rem; line-height: 1.62;
-    background: var(--surface-2); padding: 0.8rem 0.95rem; margin: 0 0 0.85rem;
-    white-space: pre-wrap; overflow-x: auto; color: var(--ink);
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    line-height: 1.62;
+    background: var(--surface-2);
+    padding: 0.8rem 0.95rem;
+    margin: 0 0 0.85rem;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    color: var(--ink);
   }
-  .gwt b { color: var(--accent); font-weight: 500; }
+
+  .gwt b {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
   .gwt .sc {
-    display: block; color: var(--ink-3); text-transform: uppercase;
-    letter-spacing: 0.1em; font-size: 0.64rem; margin-bottom: 0.3rem;
+    display: block;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.64rem;
+    margin-bottom: 0.3rem;
   }
 
   .tblwrap { overflow-x: auto; }
+
   table {
-    border-collapse: collapse; width: 100%; min-width: 440px;
-    font-family: var(--sans); font-size: 0.85rem; line-height: 1.4;
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 440px;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    line-height: 1.4;
   }
-  th, td { border: 1px solid var(--rule); padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
-  th { background: var(--surface-2); font-weight: 600; color: var(--ink); }
+
+  th,
+  td {
+    border: 1px solid var(--rule);
+    padding: 0.5rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background: var(--surface-2);
+    font-weight: 600;
+    color: var(--ink);
+  }
+
   td { color: var(--ink-2); }
-  td strong, td b { color: var(--ink); font-weight: 600; }
-  .yes { color: var(--accent); font-weight: 600; }
+
+  td strong,
+  td b {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .yes {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
   caption {
-    caption-side: bottom; text-align: left; padding-top: 0.6rem;
-    font-family: var(--mono); font-size: 0.66rem; line-height: 1.5; color: var(--ink-3);
+    caption-side: bottom;
+    text-align: left;
+    padding-top: 0.6rem;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    line-height: 1.5;
+    color: var(--ink-3);
   }
 
   .outcome {
-    max-width: 70ch; padding: 1.2rem 1.45rem 1.3rem;
-    background: var(--surface); border-top: 2px solid var(--accent); box-shadow: var(--shadow);
+    max-width: 70ch;
+    padding: 1.2rem 1.45rem 1.3rem;
+    background: var(--surface);
+    border-top: 2px solid var(--accent);
+    box-shadow: var(--shadow);
   }
-  .outcome .lbl { margin-bottom: 0.45rem; }
-  .outcome p { margin: 0; font-size: 1rem; }
 
-  .chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 1.35rem; max-width: 76ch; }
+  .outcome .lbl { margin-bottom: 0.45rem; }
+
+  .outcome p {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 1.35rem;
+    max-width: 76ch;
+  }
+
   .chip {
-    font-family: var(--mono); font-size: 0.67rem; letter-spacing: 0.03em;
-    color: var(--ink-2); background: var(--surface-2); padding: 0.28rem 0.55rem; white-space: nowrap;
+    font-family: var(--mono);
+    font-size: 0.67rem;
+    letter-spacing: 0.03em;
+    color: var(--ink-2);
+    background: var(--surface-2);
+    padding: 0.28rem 0.55rem;
+    white-space: nowrap;
   }
 
   /* ===================== PRACTICE ===================== */
 
   .practice {
-    background: var(--surface); border-top: 1px solid var(--rule-2); border-bottom: 1px solid var(--rule-2);
-    padding: clamp(3rem, 6vw, 4.5rem) 0; margin-top: clamp(2.5rem, 5vw, 4rem);
+    background: var(--surface);
+    border-top: 1px solid var(--rule-2);
+    border-bottom: 1px solid var(--rule-2);
+    padding: clamp(3rem, 6vw, 4.5rem) 0;
+    margin-top: clamp(2.5rem, 5vw, 4rem);
   }
+
   .practice h2 {
-    font-family: var(--sans); font-weight: 600; font-size: clamp(1.5rem, 2.8vw, 2rem);
-    letter-spacing: -0.028em; line-height: 1.1; margin: 0.8rem 0 2.25rem; max-width: 26ch;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    letter-spacing: -0.028em;
+    line-height: 1.1;
+    margin: 0.8rem 0 2.25rem;
+    max-width: 26ch;
   }
-  .practice__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.9rem 2.5rem; }
-  .practice__grid article { border-top: 2px solid var(--accent); padding-top: 1rem; }
+
+  .practice__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.9rem 2.5rem;
+  }
+
+  .practice__grid article {
+    border-top: 2px solid var(--accent);
+    padding-top: 1rem;
+  }
+
   .practice__grid h3 {
-    font-family: var(--sans); font-size: 0.99rem; font-weight: 600; letter-spacing: -0.012em; margin: 0 0 0.45rem;
+    font-family: var(--sans);
+    font-size: 0.99rem;
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    margin: 0 0 0.45rem;
   }
-  .practice__grid p { margin: 0; font-size: 0.94rem; line-height: 1.5; color: var(--ink-2); }
+
+  .practice__grid p {
+    margin: 0;
+    font-size: 0.94rem;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
 
   /* ===================== CONTACT ===================== */
 
-  .contact { padding: clamp(3rem, 7vw, 5rem) 0 clamp(2rem, 4vw, 3.5rem); }
-  .contact h2 {
-    font-family: var(--sans); font-weight: 600; font-size: clamp(1.8rem, 4vw, 2.8rem);
-    letter-spacing: -0.032em; line-height: 1.06; margin: 0.8rem 0 1.1rem; max-width: 18ch;
+  .contact {
+    padding: clamp(3rem, 7vw, 5rem) 0 clamp(2rem, 4vw, 3.5rem);
   }
-  .contact p { color: var(--ink-2); max-width: 48ch; margin: 0 0 1.75rem; }
-  .contact__links { display: flex; flex-wrap: wrap; gap: 0.7rem 1.1rem; }
+
+  .contact h2 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    letter-spacing: -0.032em;
+    line-height: 1.06;
+    margin: 0.8rem 0 1.1rem;
+    max-width: 18ch;
+  }
+
+  .contact p {
+    color: var(--ink-2);
+    max-width: 48ch;
+    margin: 0 0 1.75rem;
+  }
+
+  .contact__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem 1.1rem;
+  }
 
   .foot {
-    border-top: 1px solid var(--rule); padding: 1.6rem 0 3.25rem;
-    font-family: var(--mono); font-size: 0.73rem; color: var(--ink-3);
-    display: flex; flex-wrap: wrap; gap: 0.5rem 2rem;
+    border-top: 1px solid var(--rule);
+    padding: 1.6rem 0 3.25rem;
+    font-family: var(--mono);
+    font-size: 0.73rem;
+    color: var(--ink-3);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
   }
 
-  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .55s ease, transform .55s ease; }
-  .reveal.is-in { opacity: 1; transform: none; }
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .55s ease, transform .55s ease;
+  }
+
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .reveal { opacity: 1; transform: none; transition: none; }
+
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
     * { transition: none !important; }
   }
 </style>
 </head>
-<body>
 
+<body>
 
 <nav class="nav">
   <div class="nav__inner">
     <a class="nav__brand" href="#top">Nina Bernardo <span>/ BA &amp; Product</span></a>
+
     <div class="nav__links">
       <a href="#c1">01 Leasing AI</a>
       <a href="#c2">02 Business Rules</a>
@@ -463,13 +1074,17 @@
       <a href="#c5">05 AI Workflow</a>
       <a href="#practice">Approach</a>
     </div>
+
     <div class="nav__right">
       <a class="nav__li" href="https://www.linkedin.com/in/ninacanares" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 23 10.9 23 14.1V21h-4v-6.1c0-1.46-.03-3.34-2.03-3.34-2.03 0-2.34 1.59-2.34 3.23V21h-4V9Z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 23 10.9 23 14.1V21h-4v-6.1c0-1.46-.03-3.34-2.03-3.34-2.03 0-2.34 1.59-2.34 3.23V21h-4V9Z"/>
+        </svg>
       </a>
       <a class="nav__cta" href="#contact">Get in touch</a>
     </div>
   </div>
+
   <div class="progress" id="progress"></div>
 </nav>
 
@@ -478,16 +1093,25 @@
     <div class="hero__tag">
       <p class="lbl">Selected case studies</p>
       <p class="lbl">Reconstructed &middot; anonymized</p>
-      <p class="lbl">10 years &middot; SaaS, enterprise, AI</p>
+      <p class="lbl">10+ years &middot; SaaS &middot; enterprise &middot; AI-enabled products</p>
     </div>
+
     <h1>Turning ambiguous business problems into <em>shippable</em> product decisions.</h1>
-    <p class="hero__lede">Senior Business Analyst and Product Owner. Five case studies showing the working artifacts behind the decisions — requirements, workflows, business rules, acceptance criteria, and UAT.</p>
+
+    <p class="hero__lede">
+      Senior Business Analyst and Product Owner. Five case studies showing how I work through requirements, workflows, business rules, acceptance criteria, prioritization, and UAT.
+    </p>
+
     <div class="hero__actions">
-      <a class="btn btn--solid" href="#c1">Start with the flagship</a>
+      <a class="btn btn--solid" href="#c1">View flagship case study</a>
+
       <a class="btn inlink" href="https://www.linkedin.com/in/ninacanares" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 23 10.9 23 14.1V21h-4v-6.1c0-1.46-.03-3.34-2.03-3.34-2.03 0-2.34 1.59-2.34 3.23V21h-4V9Z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 23 10.9 23 14.1V21h-4v-6.1c0-1.46-.03-3.34-2.03-3.34-2.03 0-2.34 1.59-2.34 3.23V21h-4V9Z"/>
+        </svg>
         LinkedIn
       </a>
+
       <a class="btn" href="mailto:canaresnina@gmail.com">canaresnina@gmail.com</a>
     </div>
   </div>
@@ -500,10 +1124,13 @@
       <span class="icard__n">01</span>
       <span class="icard__g" aria-hidden="true">
         <svg viewBox="0 0 100 34" fill="none" stroke="currentColor" stroke-width="1.4">
-          <rect x="38" y="1" width="24" height="8"/><path d="M50 9v6"/>
+          <rect x="38" y="1" width="24" height="8"/>
+          <path d="M50 9v6"/>
           <rect x="38" y="15" width="24" height="8" stroke-dasharray="3 2"/>
           <path d="M50 23v3M50 26H14v2M50 26h36v2M50 26v2"/>
-          <rect x="4" y="28" width="20" height="5"/><rect x="40" y="28" width="20" height="5"/><rect x="76" y="28" width="20" height="5"/>
+          <rect x="4" y="28" width="20" height="5"/>
+          <rect x="40" y="28" width="20" height="5"/>
+          <rect x="76" y="28" width="20" height="5"/>
         </svg>
       </span>
       <span class="icard__t">AI Leasing Assistant</span>
@@ -515,10 +1142,15 @@
       <span class="icard__n">02</span>
       <span class="icard__g" aria-hidden="true">
         <svg viewBox="0 0 100 34" fill="none" stroke="currentColor" stroke-width="1.4">
-          <rect x="38" y="1" width="24" height="7"/><path d="M50 8v4M50 12H18v3M50 12h32v3M50 12v3"/>
-          <rect x="8" y="15" width="20" height="6"/><rect x="40" y="15" width="20" height="6"/><rect x="72" y="15" width="20" height="6"/>
+          <rect x="38" y="1" width="24" height="7"/>
+          <path d="M50 8v4M50 12H18v3M50 12h32v3M50 12v3"/>
+          <rect x="8" y="15" width="20" height="6"/>
+          <rect x="40" y="15" width="20" height="6"/>
+          <rect x="72" y="15" width="20" height="6"/>
           <path d="M18 21v3M50 21v3M82 21v3"/>
-          <rect x="8" y="24" width="20" height="4"/><rect x="40" y="24" width="20" height="4"/><rect x="72" y="24" width="20" height="4"/>
+          <rect x="8" y="24" width="20" height="4"/>
+          <rect x="40" y="24" width="20" height="4"/>
+          <rect x="72" y="24" width="20" height="4"/>
         </svg>
       </span>
       <span class="icard__t">One Request, Seven Rule Sets</span>
@@ -530,11 +1162,15 @@
       <span class="icard__n">03</span>
       <span class="icard__g" aria-hidden="true">
         <svg viewBox="0 0 100 34" fill="none" stroke="currentColor" stroke-width="1.4">
-          <rect x="2" y="13" width="17" height="8"/><path d="M19 17h7"/>
-          <rect x="26" y="13" width="17" height="8"/><path d="M43 17h7"/>
-          <rect x="50" y="13" width="17" height="8"/><path d="M67 17h7"/>
+          <rect x="2" y="13" width="17" height="8"/>
+          <path d="M19 17h7"/>
+          <rect x="26" y="13" width="17" height="8"/>
+          <path d="M43 17h7"/>
+          <rect x="50" y="13" width="17" height="8"/>
+          <path d="M67 17h7"/>
           <rect x="74" y="13" width="17" height="8"/>
-          <path d="M58 13V6h22" stroke-dasharray="3 2"/><circle cx="84" cy="6" r="3"/>
+          <path d="M58 13V6h22" stroke-dasharray="3 2"/>
+          <circle cx="84" cy="6" r="3"/>
         </svg>
       </span>
       <span class="icard__t">Defining Submission Status</span>
@@ -546,14 +1182,20 @@
       <span class="icard__n">04</span>
       <span class="icard__g" aria-hidden="true">
         <svg viewBox="0 0 100 34" fill="none" stroke="currentColor" stroke-width="1.4">
-          <rect x="2" y="2" width="14" height="7" stroke-dasharray="3 2"/><path d="M16 5.5h5"/>
-          <rect x="21" y="2" width="14" height="7" stroke-dasharray="3 2"/><path d="M35 5.5h5"/>
-          <rect x="40" y="2" width="14" height="7" stroke-dasharray="3 2"/><path d="M54 5.5h5"/>
-          <rect x="59" y="2" width="14" height="7" stroke-dasharray="3 2"/><path d="M73 5.5h5"/>
+          <rect x="2" y="2" width="14" height="7" stroke-dasharray="3 2"/>
+          <path d="M16 5.5h5"/>
+          <rect x="21" y="2" width="14" height="7" stroke-dasharray="3 2"/>
+          <path d="M35 5.5h5"/>
+          <rect x="40" y="2" width="14" height="7" stroke-dasharray="3 2"/>
+          <path d="M54 5.5h5"/>
+          <rect x="59" y="2" width="14" height="7" stroke-dasharray="3 2"/>
+          <path d="M73 5.5h5"/>
           <rect x="78" y="2" width="14" height="7" stroke-dasharray="3 2"/>
           <path d="M50 14v6M46 17l4 3 4-3"/>
-          <rect x="10" y="25" width="20" height="7"/><path d="M30 28.5h6"/>
-          <rect x="36" y="25" width="20" height="7"/><path d="M56 28.5h6"/>
+          <rect x="10" y="25" width="20" height="7"/>
+          <path d="M30 28.5h6"/>
+          <rect x="36" y="25" width="20" height="7"/>
+          <path d="M56 28.5h6"/>
           <rect x="62" y="25" width="20" height="7"/>
         </svg>
       </span>
@@ -566,11 +1208,13 @@
       <span class="icard__n">05</span>
       <span class="icard__g" aria-hidden="true">
         <svg viewBox="0 0 100 34" fill="none" stroke="currentColor" stroke-width="1.4">
-          <rect x="38" y="1" width="24" height="6"/><path d="M50 7v3"/>
+          <rect x="38" y="1" width="24" height="6"/>
+          <path d="M50 7v3"/>
           <rect x="30" y="10" width="40" height="6"/>
           <path d="M50 16v3"/>
           <rect x="34" y="19" width="32" height="6" stroke-dasharray="3 2"/>
-          <path d="M50 25v3"/><rect x="38" y="28" width="24" height="5"/>
+          <path d="M50 25v3"/>
+          <rect x="38" y="28" width="24" height="5"/>
           <path d="M22 22h8M78 22h-8" stroke-dasharray="2 2"/>
         </svg>
       </span>
@@ -591,97 +1235,147 @@
 <div class="cases shell">
 
   <!-- ==================== CASE 01 ==================== -->
+
   <article class="case reveal" id="c1">
     <div class="case__grid">
+
       <aside class="case__aside">
         <span class="case__num">Case 01 &nbsp;/&nbsp; 2022 &ndash; 2025</span>
+
         <dl class="case__facts">
-          <div><dt class="lbl">Sector</dt><dd>Property technology, multifamily SaaS</dd></div>
-          <div><dt class="lbl">Product</dt><dd>Greenfield AI renter engagement layer over a leasing CRM</dd></div>
-          <div><dt class="lbl">Role</dt><dd>Senior BA, discovery through release</dd></div>
+          <div>
+            <dt class="lbl">Sector</dt>
+            <dd>Property technology, multifamily SaaS</dd>
+          </div>
+          <div>
+            <dt class="lbl">Product</dt>
+            <dd>Greenfield AI renter engagement layer over a leasing CRM</dd>
+          </div>
+          <div>
+            <dt class="lbl">Role</dt>
+            <dd>Senior BA, discovery through release</dd>
+          </div>
         </dl>
+
         <span class="badge">Reconstructed</span>
       </aside>
 
       <div>
         <h2>An AI leasing assistant that knows when to stop</h2>
+
         <p class="premise">The hard requirement was never what the AI should answer. It was when the AI should stop and hand over.</p>
 
         <dl class="sit">
-          <div><dt>Situation</dt><dd>Renter inquiries arrive 24/7 across channels</dd></div>
-          <div><dt>Constraint</dt><dd>Small leasing teams, office hours only</dd></div>
-          <div><dt>Cost</dt><dd>Out-of-hours inquiries go cold in the gap</dd></div>
+          <div>
+            <dt>Situation</dt>
+            <dd>Renter inquiries arrive 24/7 across channels</dd>
+          </div>
+          <div>
+            <dt>Constraint</dt>
+            <dd>Small leasing teams, office hours only</dd>
+          </div>
+          <div>
+            <dt>Cost</dt>
+            <dd>Out-of-hours inquiries go cold in the gap</dd>
+          </div>
         </dl>
 
-        <p class="lead">The objective was an AI layer that handles common inquiries and reliably identifies when a conversation needs a leasing professional. Turning that direction into testable behavior meant defining the boundaries first: what it may answer alone, where it must hand off, and what happens when it's wrong.</p>
+        <p class="lead">The objective was an AI layer that could handle common renter inquiries while recognising when a leasing professional needed to step in. My first step was to define those boundaries: what the AI could handle on its own, when it should ask for more information, and when it had to hand off.</p>
 
         <div class="dia">
           <div class="dia__h">
             <b>Prospect conversation journey</b>
             <p class="lbl">Artifact &mdash; user flow</p>
           </div>
+
           <div class="flowwrap">
             <div class="flow">
               <div class="step step--start">Prospect initiates conversation</div>
               <div class="step">AI identifies intent</div>
               <div class="step">Collect required information</div>
-              <div class="step step--dec"><b>Enough information to act?</b><i>No &rarr; ask follow-up, return to collection</i></div>
+
+              <div class="step step--dec">
+                <b>Enough information to act?</b>
+                <i>No &rarr; ask follow-up, return to collection</i>
+              </div>
+
               <div class="step">Determine next action</div>
+
               <p class="flow__cap">One of</p>
+
               <div class="split">
                 <div class="opt">Answer question</div>
                 <div class="opt">Recommend next step</div>
                 <div class="opt">Escalate to agent</div>
               </div>
+
               <div class="step">Capture interaction and context</div>
               <div class="step step--end">Sync to CRM / leasing workflow</div>
             </div>
           </div>
-          <p class="dia__note">Escalation is a first-class path, not an error state. Everything about the requirements follows from that.</p>
+
+          <p class="dia__note">I treated escalation as part of the expected journey rather than as a failure state. That made the handoff conditions, context requirements, and fallback behaviour part of the requirements from the start.</p>
         </div>
 
         <div class="stats">
           <div class="stat">
-            <span class="stat__k">The trust gate</span>
+            <span class="stat__k">Key measure</span>
             <span class="stat__v">Missed escalation rate</span>
             <span class="stat__n">AI-handled conversations subsequently determined to have required human intervention.</span>
           </div>
+
           <div class="stat">
-            <span class="stat__k">The efficiency measure</span>
+            <span class="stat__k">Key measure</span>
             <span class="stat__v">Containment rate</span>
             <span class="stat__n">Conversations resolved without human intervention.</span>
           </div>
+
           <div class="stat">
-            <span class="stat__k">The handoff measure</span>
+            <span class="stat__k">Key measure</span>
             <span class="stat__v">Escalation completeness</span>
             <span class="stat__n">Escalations reaching an agent with conversation context and escalation reason intact.</span>
           </div>
         </div>
-        <p class="stats__cap">Success measures I would define for this solution. The design decision is the ranking: a chatty assistant that occasionally strands a prospect is worse than a cautious one, so missed escalation outranks containment.</p>
+
+        <p class="stats__cap">These are representative measures I would use to evaluate the solution. I would prioritise missed escalations over containment: resolving more conversations automatically has limited value if the system occasionally leaves a prospect without the human help they needed.</p>
 
         <details class="arts">
-          <summary>Full artifacts &mdash; requirements, user story, edge cases, measures <span class="tog"></span></summary>
+          <summary>
+            Full artifacts &mdash; requirements, user story, edge cases, measures
+            <span class="tog"></span>
+          </summary>
+
           <div class="arts__body">
 
             <div>
               <h4 class="art__h">Functional requirements</h4>
+
               <div class="req">
                 <span class="req__id">FR-01 &nbsp;Identify prospect intent</span>
                 <p>The system shall analyze each incoming prospect message and determine the applicable supported intent.</p>
                 <p>Supported intents:</p>
                 <ul>
-                  <li>Property inquiry</li><li>Availability</li><li>Pricing</li><li>Amenities</li>
-                  <li>Viewing request</li><li>Application question</li><li>Existing tenant inquiry</li><li>Unsupported request</li>
+                  <li>Property inquiry</li>
+                  <li>Availability</li>
+                  <li>Pricing</li>
+                  <li>Amenities</li>
+                  <li>Viewing request</li>
+                  <li>Application question</li>
+                  <li>Existing tenant inquiry</li>
+                  <li>Unsupported request</li>
                 </ul>
               </div>
+
               <div class="req">
                 <span class="req__id">FR-02 &nbsp;Determine response confidence</span>
                 <p>The system shall assign a confidence level to each determined intent. Where confidence falls below the configured threshold, the conversation shall be treated as requiring human assistance regardless of intent type.</p>
               </div>
+
               <div class="req">
                 <span class="req__id">FR-03 &nbsp;Escalate with context</span>
                 <p>Where a conversation is routed for human follow-up, the system shall retain and present the full conversation context, the identified intent, and the reason for escalation to the receiving leasing professional.</p>
               </div>
+
               <div class="req">
                 <span class="req__id">FR-04 &nbsp;Record every interaction</span>
                 <p>The system shall record each prospect interaction against the prospect record, including AI-handled exchanges, regardless of whether escalation occurred.</p>
@@ -690,18 +1384,22 @@
 
             <div>
               <h4 class="art__h">User story and acceptance criteria</h4>
+
               <div class="req">
                 <span class="req__id">US-01 &nbsp;Prospect inquiry</span>
                 <p><strong>As a</strong> prospective renter, <strong>I want to</strong> ask questions about a property, <strong>so that</strong> I can obtain information without waiting for a leasing agent.</p>
               </div>
+
               <div class="gwt"><span class="sc">Scenario 1 — Known information</span><b>Given</b> the prospect asks a question supported by available property information
 <b>When</b> the AI determines the prospect's intent with confidence at or above threshold
 <b>Then</b> the system provides the relevant response
 <b>And</b> the interaction is recorded against the prospect record.</div>
+
               <div class="gwt"><span class="sc">Scenario 2 — Missing information</span><b>Given</b> additional information is required to answer
 <b>When</b> the AI cannot determine the appropriate response from what has been provided
 <b>Then</b> the prospect is prompted for the specific missing information
 <b>And</b> the conversation remains with the AI.</div>
+
               <div class="gwt"><span class="sc">Scenario 3 — Low confidence or unsupported</span><b>Given</b> the request cannot be handled reliably
 <b>When</b> the system determines that human assistance is required
 <b>Then</b> the conversation is routed for human follow-up
@@ -711,16 +1409,40 @@
 
             <div>
               <h4 class="art__h">Edge cases raised during refinement</h4>
+
               <div class="tblwrap">
                 <table>
-                  <thead><tr><th>Edge case</th><th>Defined behavior</th></tr></thead>
+                  <thead>
+                    <tr>
+                      <th>Edge case</th>
+                      <th>Defined behavior</th>
+                    </tr>
+                  </thead>
                   <tbody>
-                    <tr><td><strong>Existing tenant uses the prospect channel</strong></td><td>Classified as existing-tenant inquiry; routed to the resident service path, not answered as leasing.</td></tr>
-                    <tr><td><strong>Question with fair-housing exposure</strong></td><td>Treated as unsupported regardless of confidence; escalated immediately with no AI-generated answer.</td></tr>
-                    <tr><td><strong>Same prospect across two channels</strong></td><td>Interactions attach to one prospect record; the agent sees one thread, not two.</td></tr>
-                    <tr><td><strong>Prospect abandons mid-collection</strong></td><td>Partial context retained; conversation resumable rather than restarted.</td></tr>
-                    <tr><td><strong>Prospect explicitly asks for a human</strong></td><td>Immediate escalation, no further AI questions.</td></tr>
-                    <tr><td><strong>No agent available</strong></td><td>Escalation queued and acknowledged; it does not silently fall back to the AI.</td></tr>
+                    <tr>
+                      <td><strong>Existing tenant uses the prospect channel</strong></td>
+                      <td>Classified as existing-tenant inquiry; routed to the resident service path, not answered as leasing.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Question with fair-housing exposure</strong></td>
+                      <td>Treated as unsupported regardless of confidence; escalated immediately with no AI-generated answer.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Same prospect across two channels</strong></td>
+                      <td>Interactions attach to one prospect record; the agent sees one thread, not two.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Prospect abandons mid-collection</strong></td>
+                      <td>Partial context retained; conversation resumable rather than restarted.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Prospect explicitly asks for a human</strong></td>
+                      <td>Immediate escalation, no further AI questions.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>No agent available</strong></td>
+                      <td>Escalation queued and acknowledged; it does not silently fall back to the AI.</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -728,33 +1450,107 @@
 
             <div>
               <h4 class="art__h">MVP prioritization</h4>
+
               <div class="tblwrap">
                 <table>
-                  <thead><tr><th>Capability</th><th>Value</th><th>Risk</th><th>Decision</th><th>Reasoning</th></tr></thead>
+                  <thead>
+                    <tr>
+                      <th>Capability</th>
+                      <th>Value</th>
+                      <th>Risk</th>
+                      <th>Decision</th>
+                      <th>Reasoning</th>
+                    </tr>
+                  </thead>
+
                   <tbody>
-                    <tr><td><strong>Supported FAQ intents</strong></td><td>High</td><td>Low</td><td class="yes">MVP</td><td>Highest volume, lowest consequence if imperfect</td></tr>
-                    <tr><td><strong>Clarification flow</strong></td><td>High</td><td>Medium</td><td class="yes">MVP</td><td>Without it the assistant guesses, which is the failure mode we're avoiding</td></tr>
-                    <tr><td><strong>Human escalation</strong></td><td>Critical</td><td>Medium</td><td class="yes">MVP</td><td>Not a feature &mdash; the precondition for shipping any of it</td></tr>
-                    <tr><td><strong>Autonomous leasing actions</strong></td><td>High</td><td>High</td><td>Later</td><td>Committing a prospect to anything needs a trust record we don't have yet</td></tr>
-                    <tr><td><strong>Advanced personalization</strong></td><td>Medium</td><td>High</td><td>Later</td><td>Fair-housing exposure outweighs the conversion upside at this stage</td></tr>
+                    <tr>
+                      <td><strong>Supported FAQ intents</strong></td>
+                      <td>High</td>
+                      <td>Low</td>
+                      <td class="yes">MVP</td>
+                      <td>Highest volume, lowest consequence if imperfect</td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Clarification flow</strong></td>
+                      <td>High</td>
+                      <td>Medium</td>
+                      <td class="yes">MVP</td>
+                      <td>Without it the assistant guesses, which is the failure mode we're avoiding</td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Human escalation</strong></td>
+                      <td>Critical</td>
+                      <td>Medium</td>
+                      <td class="yes">MVP</td>
+                      <td>Made lower-confidence AI scenarios safe enough to release</td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Autonomous leasing actions</strong></td>
+                      <td>High</td>
+                      <td>High</td>
+                      <td>Later</td>
+                      <td>Committing a prospect to anything needed a stronger trust record first</td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Advanced personalization</strong></td>
+                      <td>Medium</td>
+                      <td>High</td>
+                      <td>Later</td>
+                      <td>Higher-risk behaviour that needed stronger evidence and controls before expanding</td>
+                    </tr>
                   </tbody>
-                  <caption>Representative prioritization. The pattern: escalation ships first because it de-risks everything else, and the two deferred items are deferred on risk rather than effort.</caption>
+
+                  <caption>Representative prioritization. Human escalation was included in MVP because it provided a safe path for lower-confidence scenarios. Higher-risk autonomous behaviour was deferred until there was enough evidence to support it.</caption>
                 </table>
               </div>
             </div>
 
             <div>
               <h4 class="art__h">Full measure set</h4>
+
               <div class="tblwrap">
                 <table>
-                  <thead><tr><th>Measure</th><th>Definition</th><th>Why it matters</th></tr></thead>
+                  <thead>
+                    <tr>
+                      <th>Measure</th>
+                      <th>Definition</th>
+                      <th>Why it matters</th>
+                    </tr>
+                  </thead>
+
                   <tbody>
-                    <tr><td><strong>Missed escalation rate</strong></td><td>AI-handled conversations subsequently determined to have required a human</td><td>The trust gate &mdash; ranked above all others</td></tr>
-                    <tr><td><strong>Containment rate</strong></td><td>Conversations resolved without human intervention</td><td>The business case, but only valid alongside the measure above</td></tr>
-                    <tr><td><strong>Correct escalation rate</strong></td><td>Escalations an agent agreed genuinely needed a human</td><td>Guards against over-escalating to game the trust gate</td></tr>
-                    <tr><td><strong>First response time</strong></td><td>Prospect message to first substantive reply, in and out of hours</td><td>The original problem was the out-of-hours gap</td></tr>
-                    <tr><td><strong>Escalation completeness</strong></td><td>Escalations arriving with full history and stated reason</td><td>An escalation without context just moves the work</td></tr>
+                    <tr>
+                      <td><strong>Missed escalation rate</strong></td>
+                      <td>AI-handled conversations subsequently determined to have required a human</td>
+                      <td>Shows whether the assistant is incorrectly keeping conversations it should hand off</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Containment rate</strong></td>
+                      <td>Conversations resolved without human intervention</td>
+                      <td>Shows the operational value of the automation</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Correct escalation rate</strong></td>
+                      <td>Escalations an agent agreed genuinely needed a human</td>
+                      <td>Guards against simply escalating everything</td>
+                    </tr>
+                    <tr>
+                      <td><strong>First response time</strong></td>
+                      <td>Prospect message to first substantive reply, in and out of hours</td>
+                      <td>Measures the original out-of-hours problem directly</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Escalation completeness</strong></td>
+                      <td>Escalations arriving with full history and stated reason</td>
+                      <td>Ensures the handoff does not create additional work for the agent</td>
+                    </tr>
                   </tbody>
+
                   <caption>Measures representative of how I would evaluate this solution. Historical production figures are not disclosed.</caption>
                 </table>
               </div>
@@ -764,38 +1560,66 @@
         </details>
 
         <div class="outcome">
-          <p class="lbl">What this demonstrates</p>
-          <p>Translating an AI product objective into explicit behavioral boundaries: supported intents, clarification paths, escalation conditions, context preservation, and testable acceptance criteria — with the prioritization judgment about what ships first and why.</p>
+          <p class="lbl">My contribution</p>
+          <p>I translated the AI product objective into explicit behavioural boundaries: supported intents, clarification paths, escalation conditions, context preservation, and testable acceptance criteria. I also used those boundaries to separate what was safe for MVP from capabilities that needed more evidence first.</p>
         </div>
 
         <div class="chips">
-          <span class="chip">AI product requirements</span><span class="chip">Human-in-the-loop design</span><span class="chip">Discovery</span><span class="chip">User flows</span><span class="chip">Edge case analysis</span><span class="chip">UAT</span>
+          <span class="chip">AI product requirements</span>
+          <span class="chip">Human-in-the-loop design</span>
+          <span class="chip">Discovery</span>
+          <span class="chip">User flows</span>
+          <span class="chip">Edge case analysis</span>
+          <span class="chip">UAT</span>
         </div>
       </div>
     </div>
   </article>
 
   <!-- ==================== CASE 02 ==================== -->
+
   <article class="case reveal" id="c2">
     <div class="case__grid">
+
       <aside class="case__aside">
         <span class="case__num">Case 02 &nbsp;/&nbsp; 2016 &ndash; 2021</span>
+
         <dl class="case__facts">
-          <div><dt class="lbl">Sector</dt><dd>Enterprise SaaS, regulated housing</dd></div>
-          <div><dt class="lbl">Scope</dt><dd>Conventional, affordable, tax credit, rent-stabilized, student, senior, military</dd></div>
-          <div><dt class="lbl">Role</dt><dd>BA, requirements and delivery</dd></div>
+          <div>
+            <dt class="lbl">Sector</dt>
+            <dd>Enterprise SaaS, regulated housing</dd>
+          </div>
+          <div>
+            <dt class="lbl">Scope</dt>
+            <dd>Conventional, affordable, tax credit, rent-stabilized, student, senior, military</dd>
+          </div>
+          <div>
+            <dt class="lbl">Role</dt>
+            <dd>BA, requirements and delivery</dd>
+          </div>
         </dl>
+
         <span class="badge">Reconstructed</span>
       </aside>
 
       <div>
         <h2>The one-line request with seven answers</h2>
-        <p class="premise">"Allow users to modify a lease-related date." Four words of scope, seven regulatory programs, and a rule set nobody had written down.</p>
+
+        <p class="premise">A one-line request, seven program types, and a set of business rules that wasn't visible in the original ask.</p>
 
         <dl class="sit">
-          <div><dt>Request</dt><dd>Change a date on a lease</dd></div>
-          <div><dt>Reality</dt><dd>Seven programs, seven rule sets, one engine</dd></div>
-          <div><dt>Risk</dt><dd>A conventional fix becomes a compliance finding</dd></div>
+          <div>
+            <dt>Request</dt>
+            <dd>Change a date on a lease</dd>
+          </div>
+          <div>
+            <dt>Reality</dt>
+            <dd>Seven programs, seven rule sets, one engine</dd>
+          </div>
+          <div>
+            <dt>Risk</dt>
+            <dd>A conventional fix becomes a compliance finding</dd>
+          </div>
         </dl>
 
         <p class="lead">Taken literally, the request becomes a simple "change the date" story. The real analysis starts by asking which program governs the lease and what downstream rules the change affects — before a single story exists.</p>
@@ -805,116 +1629,195 @@
             <b>Date modification decision path</b>
             <p class="lbl">Artifact &mdash; decision tree</p>
           </div>
+
           <div class="flowwrap">
             <div class="flow">
               <div class="step step--start">Date change requested</div>
-              <div class="step step--dec"><b>Lease status?</b><i>Closed &rarr; blocked with explanation</i></div>
+
+              <div class="step step--dec">
+                <b>Lease status?</b>
+                <i>Closed &rarr; blocked with explanation</i>
+              </div>
+
               <div class="step">Identify property program type</div>
+
               <p class="flow__cap">Rule set applied</p>
+
               <div class="split">
                 <div class="opt">Conventional<br>standard rules</div>
                 <div class="opt">Regulated<br>compliance validation</div>
                 <div class="opt">Student<br>academic term rules</div>
               </div>
-              <div class="step step--dec"><b>Eligible under applicable rules?</b><i>No &rarr; block, name the rule that failed</i></div>
+
+              <div class="step step--dec">
+                <b>Eligible under applicable rules?</b>
+                <i>No &rarr; block, name the rule that failed</i>
+              </div>
+
               <div class="step">Apply change, recalculate dependents</div>
               <div class="step step--end">Write audit record</div>
             </div>
           </div>
+
           <p class="dia__note">The branch that isn't in the request — program type — is the whole analysis.</p>
         </div>
 
         <div class="stats">
           <div class="stat">
-            <span class="stat__k">The real test</span>
+            <span class="stat__k">Key measure</span>
             <span class="stat__v">Cross-program defect leakage</span>
             <span class="stat__n">Post-release defects affecting a program the change was not written for.</span>
           </div>
+
           <div class="stat">
-            <span class="stat__k">The coverage measure</span>
+            <span class="stat__k">Key measure</span>
             <span class="stat__v">Rule coverage</span>
             <span class="stat__n">Scenarios in the business rules matrix with a corresponding test.</span>
           </div>
+
           <div class="stat">
-            <span class="stat__k">The support measure</span>
+            <span class="stat__k">Key measure</span>
             <span class="stat__v">Refusal clarity</span>
             <span class="stat__n">Blocked attempts diagnosable from the message alone, without reproducing.</span>
           </div>
         </div>
-        <p class="stats__cap">Success measures I would define for this solution. Defect leakage is the one that tells you whether the impact analysis was real or performed.</p>
+
+        <p class="stats__cap">These are representative measures I would use for this type of change. Cross-program defects are particularly useful because they show whether impact analysis covered the wider product, not just the scenario that triggered the request.</p>
 
         <details class="arts">
-          <summary>Full artifacts &mdash; business rules matrix, requirements, AC, measures <span class="tog"></span></summary>
+          <summary>
+            Full artifacts &mdash; business rules matrix, requirements, AC, measures
+            <span class="tog"></span>
+          </summary>
+
           <div class="arts__body">
 
             <div>
               <h4 class="art__h">Cross-program business rules matrix</h4>
+
               <div class="tblwrap">
                 <table>
-                  <thead><tr><th>Lease scenario</th><th>Conventional</th><th>Affordable / tax credit</th><th>Student</th><th>Expected behavior</th></tr></thead>
+                  <thead>
+                    <tr>
+                      <th>Lease scenario</th>
+                      <th>Conventional</th>
+                      <th>Affordable / tax credit</th>
+                      <th>Student</th>
+                      <th>Expected behavior</th>
+                    </tr>
+                  </thead>
+
                   <tbody>
                     <tr>
                       <td><strong>Active lease</strong></td>
-                      <td class="yes">Allow</td><td>Validate certification</td><td>Validate academic term</td>
+                      <td class="yes">Allow</td>
+                      <td>Validate certification</td>
+                      <td>Validate academic term</td>
                       <td>Conditional &mdash; permitted where the program rule passes</td>
                     </tr>
+
                     <tr>
                       <td><strong>Future lease</strong></td>
-                      <td class="yes">Allow</td><td>Validate against income limits in effect at move-in</td><td>Validate term start</td>
+                      <td class="yes">Allow</td>
+                      <td>Validate against income limits in effect at move-in</td>
+                      <td>Validate term start</td>
                       <td>Conditional &mdash; new date must precede move-in in all programs</td>
                     </tr>
+
                     <tr>
                       <td><strong>Closed lease</strong></td>
-                      <td>Block</td><td>Block</td><td>Block</td>
+                      <td>Block</td>
+                      <td>Block</td>
+                      <td>Block</td>
                       <td>Uniformly blocked &mdash; state the reason on the record</td>
                     </tr>
+
                     <tr>
                       <td><strong>Pending workflow</strong></td>
-                      <td>Check dependency</td><td>Check compliance in flight</td><td>Check term dependency</td>
+                      <td>Check dependency</td>
+                      <td>Check compliance in flight</td>
+                      <td>Check term dependency</td>
                       <td>Conditional &mdash; in-flight approvals resolve before the change applies</td>
                     </tr>
+
                     <tr>
                       <td><strong>Mid-certification period</strong></td>
-                      <td>n/a</td><td>Block or trigger recertification</td><td>n/a</td>
+                      <td>n/a</td>
+                      <td>Block or trigger recertification</td>
+                      <td>n/a</td>
                       <td>Program-specific &mdash; no equivalent rule outside regulated programs</td>
                     </tr>
                   </tbody>
-                  <caption>Representative rules, deliberately simplified. The structural point is the bottom two rows: a scenario that is trivial in one program is a compliance event in another, and one column has a rule with no counterpart anywhere else.</caption>
+
+                  <caption>Representative rules, deliberately simplified. A scenario that is routine in one program can trigger additional compliance rules in another.</caption>
                 </table>
               </div>
             </div>
 
             <div>
               <h4 class="art__h">Impact analysis</h4>
+
               <div class="tblwrap">
                 <table>
-                  <thead><tr><th>Affected area</th><th>Impact of a date change</th><th>Analysis required before estimation</th></tr></thead>
+                  <thead>
+                    <tr>
+                      <th>Affected area</th>
+                      <th>Impact of a date change</th>
+                      <th>Analysis required before estimation</th>
+                    </tr>
+                  </thead>
+
                   <tbody>
-                    <tr><td><strong>Charge schedule</strong></td><td>Scheduled charges recalculate; proration may change</td><td>Which charge types are date-derived vs. fixed</td></tr>
-                    <tr><td><strong>Compliance certification</strong></td><td>Certification validity window may shift or void</td><td>Whether the program treats the date as certification-relevant</td></tr>
-                    <tr><td><strong>Regulatory reporting</strong></td><td>Prior submitted periods may become inconsistent</td><td>Whether any affected period has already been reported</td></tr>
-                    <tr><td><strong>In-flight workflows</strong></td><td>Pending approvals may be based on the old value</td><td>Which workflows reference the date as an approval condition</td></tr>
-                    <tr><td><strong>Audit and history</strong></td><td>Prior state must remain reconstructible</td><td>Whether refused attempts are also retained</td></tr>
+                    <tr>
+                      <td><strong>Charge schedule</strong></td>
+                      <td>Scheduled charges recalculate; proration may change</td>
+                      <td>Which charge types are date-derived vs. fixed</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Compliance certification</strong></td>
+                      <td>Certification validity window may shift or void</td>
+                      <td>Whether the program treats the date as certification-relevant</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Regulatory reporting</strong></td>
+                      <td>Prior submitted periods may become inconsistent</td>
+                      <td>Whether any affected period has already been reported</td>
+                    </tr>
+                    <tr>
+                      <td><strong>In-flight workflows</strong></td>
+                      <td>Pending approvals may be based on the old value</td>
+                      <td>Which workflows reference the date as an approval condition</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Audit and history</strong></td>
+                      <td>Prior state must remain reconstructible</td>
+                      <td>Whether refused attempts are also retained</td>
+                    </tr>
                   </tbody>
-                  <caption>This table is the artifact that turns "change a date" into a properly sized piece of work.</caption>
+
+                  <caption>This is the point where a seemingly small request becomes a properly scoped piece of work: changing one field can affect charges, compliance, reporting, in-flight workflows, and audit history.</caption>
                 </table>
               </div>
             </div>
 
             <div>
               <h4 class="art__h">Requirements derived from the matrix</h4>
+
               <div class="req">
                 <span class="req__id">FR-01 &nbsp;Apply program-specific validation</span>
                 <p>The system shall determine the property program type associated with the lease and apply the validation rule set defined for that program before permitting a date modification.</p>
               </div>
+
               <div class="req">
                 <span class="req__id">FR-02 &nbsp;Explain refusals</span>
                 <p>Where a modification is refused, the system shall identify the specific rule that was not satisfied. A generic failure message is not acceptable.</p>
               </div>
+
               <div class="req">
                 <span class="req__id">FR-03 &nbsp;Recalculate dependent values</span>
                 <p>Where a modification is applied, the system shall recalculate all values dependent on the modified date and present the resulting changes to the user before commit.</p>
               </div>
+
               <div class="req">
                 <span class="req__id">FR-04 &nbsp;Maintain an audit record</span>
                 <p>The system shall record prior value, new value, acting user, timestamp, and validation outcome for every attempted modification, including refused attempts.</p>
@@ -923,19 +1826,23 @@
 
             <div>
               <h4 class="art__h">Acceptance criteria</h4>
+
               <div class="req">
                 <span class="req__id">US-01 &nbsp;Modify a lease date</span>
                 <p><strong>As a</strong> leasing administrator, <strong>I want to</strong> correct a lease-related date, <strong>so that</strong> the record reflects the agreement without breaching program rules.</p>
               </div>
+
               <div class="gwt"><span class="sc">Scenario 1 — Permitted change</span><b>Given</b> an active conventional lease
 <b>When</b> the administrator submits a new date within the lease term
 <b>Then</b> dependent charges are recalculated and shown for confirmation
 <b>And</b> the change is committed with an audit record on confirmation.</div>
+
               <div class="gwt"><span class="sc">Scenario 2 — Blocked by program rule</span><b>Given</b> a lease under a regulated housing program
 <b>When</b> the submitted date would invalidate the current certification
 <b>Then</b> the change is refused
 <b>And</b> the specific compliance rule that failed is named in the message
 <b>And</b> the refused attempt is recorded in the audit trail.</div>
+
               <div class="gwt"><span class="sc">Scenario 3 — Blocked by lease status</span><b>Given</b> a closed lease
 <b>When</b> the administrator attempts any date modification
 <b>Then</b> the action is unavailable
@@ -944,16 +1851,45 @@
 
             <div>
               <h4 class="art__h">Full measure set</h4>
+
               <div class="tblwrap">
                 <table>
-                  <thead><tr><th>Measure</th><th>Definition</th><th>Why it matters</th></tr></thead>
+                  <thead>
+                    <tr>
+                      <th>Measure</th>
+                      <th>Definition</th>
+                      <th>Why it matters</th>
+                    </tr>
+                  </thead>
+
                   <tbody>
-                    <tr><td><strong>Cross-program defect leakage</strong></td><td>Post-release defects affecting a program other than the one written for</td><td>Tells you whether impact analysis was real or performed</td></tr>
-                    <tr><td><strong>Rule coverage</strong></td><td>Matrix scenarios with an automated or scripted test</td><td>An untested rule in the matrix is documentation, not behavior</td></tr>
-                    <tr><td><strong>Refusal clarity</strong></td><td>Blocked attempts diagnosable from the message alone</td><td>Determines whether refusals become support tickets</td></tr>
-                    <tr><td><strong>Requirement churn</strong></td><td>Stories reopened in-sprint for missing rule detail</td><td>A direct read on whether the rules were found before estimation</td></tr>
-                    <tr><td><strong>Audit completeness</strong></td><td>Attempts, including refusals, with a full audit record</td><td>Regulated programs require the refused attempt too</td></tr>
+                    <tr>
+                      <td><strong>Cross-program defect leakage</strong></td>
+                      <td>Post-release defects affecting a program other than the one written for</td>
+                      <td>Shows whether the impact analysis covered the wider product</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Rule coverage</strong></td>
+                      <td>Matrix scenarios with an automated or scripted test</td>
+                      <td>Confirms that documented rules are represented in testing</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Refusal clarity</strong></td>
+                      <td>Blocked attempts diagnosable from the message alone</td>
+                      <td>Reduces unnecessary support investigation</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Requirement churn</strong></td>
+                      <td>Stories reopened in-sprint for missing rule detail</td>
+                      <td>Shows whether key rules were identified before development</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Audit completeness</strong></td>
+                      <td>Attempts, including refusals, with a full audit record</td>
+                      <td>Supports traceability in regulated scenarios</td>
+                    </tr>
                   </tbody>
+
                   <caption>Measures representative of how I would evaluate this solution. Historical production figures are not disclosed.</caption>
                 </table>
               </div>
@@ -963,95 +1899,167 @@
         </details>
 
         <div class="outcome">
-          <p class="lbl">What this demonstrates</p>
-          <p>Decomposing a deceptively small request into program-specific business rules, mapping cross-vertical impact before estimation, and writing requirements that make conditional behavior explicit rather than leaving engineering and QA to infer it.</p>
+          <p class="lbl">My contribution</p>
+          <p>I broke a small-looking product request into program-specific rules and downstream impacts before estimation. From there, I translated the rules into requirements and acceptance criteria so Engineering and QA did not have to infer conditional behaviour during delivery.</p>
         </div>
 
         <div class="chips">
-          <span class="chip">Complex domain analysis</span><span class="chip">Business rules modelling</span><span class="chip">Regulatory requirements</span><span class="chip">Impact analysis</span><span class="chip">SME facilitation</span>
+          <span class="chip">Complex domain analysis</span>
+          <span class="chip">Business rules modelling</span>
+          <span class="chip">Regulatory requirements</span>
+          <span class="chip">Impact analysis</span>
+          <span class="chip">SME facilitation</span>
         </div>
+
       </div>
     </div>
   </article>
 
   <!-- ==================== CASE 03 ==================== -->
+
   <article class="case reveal" id="c3">
     <div class="case__grid">
+
       <aside class="case__aside">
         <span class="case__num">Case 03 &nbsp;/&nbsp; 2025 &ndash; present</span>
+
         <dl class="case__facts">
-          <div><dt class="lbl">Sector</dt><dd>Education technology, K&ndash;12 SaaS</dd></div>
-          <div><dt class="lbl">Product</dt><dd>Learning management platform, quarterly releases</dd></div>
-          <div><dt class="lbl">Role</dt><dd>Senior Business Analyst on the delivery team</dd></div>
+          <div>
+            <dt class="lbl">Sector</dt>
+            <dd>Education technology, K&ndash;12 SaaS</dd>
+          </div>
+          <div>
+            <dt class="lbl">Product</dt>
+            <dd>Learning management platform, quarterly releases</dd>
+          </div>
+          <div>
+            <dt class="lbl">Role</dt>
+            <dd>Senior Business Analyst on the delivery team</dd>
+          </div>
         </dl>
+
         <span class="badge">Reconstructed</span>
       </aside>
 
       <div>
         <h2>Making submission status mean one thing</h2>
+
         <p class="premise">The complaint was visibility. The cause was vocabulary — "submitted" and "late" meant different things in different parts of the product.</p>
 
         <dl class="sit">
-          <div><dt>Symptom</dt><dd>Teachers can't tell who submitted or what's late</dd></div>
-          <div><dt>Cause</dt><dd>Each view derived its own status</dd></div>
-          <div><dt>Blocker</dt><dd>No view can be trusted until the terms are fixed</dd></div>
+          <div>
+            <dt>Symptom</dt>
+            <dd>Teachers can't tell who submitted or what's late</dd>
+          </div>
+          <div>
+            <dt>Cause</dt>
+            <dd>Each view derived its own status</dd>
+          </div>
+          <div>
+            <dt>Blocker</dt>
+            <dd>No view can be trusted until the terms are fixed</dd>
+          </div>
         </dl>
 
-        <p class="lead">Before any screen could be designed, the states had to be named, the transitions agreed, and six stakeholder groups had to see their need reflected in one model.</p>
+        <p class="lead">I started with the state model before discussing screen changes. The definitions needed to work across the perspectives of teachers, students, administrators, Product, Engineering, and QA — otherwise each view could continue interpreting status differently.</p>
 
         <div class="dia">
           <div class="dia__h">
             <b>Submission state model</b>
             <p class="lbl">Artifact &mdash; state machine</p>
           </div>
+
           <div class="flowwrap">
             <div class="flow flow--h">
               <div class="step step--start">Not started</div>
               <div class="step">In progress</div>
-              <div class="step step--dec"><b>Submitted</b><i>Late = flag, not state</i></div>
+              <div class="step step--dec">
+                <b>Submitted</b>
+                <i>Late = flag, not state</i>
+              </div>
               <div class="step">Returned</div>
               <div class="step">Resubmitted</div>
               <div class="step step--end">Completed</div>
             </div>
           </div>
+
           <p class="dia__note">Late is an attribute of the submission, not a state. That one decision removed the contradiction where a submitted-but-late item had to exist in two states at once.</p>
         </div>
 
         <div class="stats">
           <div class="stat">
-            <span class="stat__k">Non-negotiable</span>
+            <span class="stat__k">Key measure</span>
             <span class="stat__v">Status agreement</span>
             <span class="stat__n">Teacher view and student view showing identical status for the same submission.</span>
           </div>
+
           <div class="stat">
-            <span class="stat__k">The usability measure</span>
+            <span class="stat__k">Key measure</span>
             <span class="stat__v">Unaided task completion</span>
             <span class="stat__n">UAT participants identifying non-submitters without help or drilling in.</span>
           </div>
+
           <div class="stat">
-            <span class="stat__k">The integrity measure</span>
+            <span class="stat__k">Key measure</span>
             <span class="stat__v">Undefined transitions</span>
             <span class="stat__n">State changes recorded outside the permitted transitions in the model.</span>
           </div>
         </div>
-        <p class="stats__cap">Success measures I would define for this solution. Status agreement comes first because a visibility feature that shows two people different answers is worse than no feature.</p>
+
+        <p class="stats__cap">These are representative measures I would use for this type of feature. Status agreement comes first: if a teacher and student can see different answers for the same submission, the visibility problem has not really been solved.</p>
 
         <details class="arts">
-          <summary>Full artifacts &mdash; stakeholder translation, requirements, AC, UAT plan <span class="tog"></span></summary>
+          <summary>
+            Full artifacts &mdash; stakeholder translation, requirements, AC, UAT plan
+            <span class="tog"></span>
+          </summary>
+
           <div class="arts__body">
 
             <div>
               <h4 class="art__h">Stakeholder needs, translated</h4>
+
               <div class="tblwrap">
                 <table>
-                  <thead><tr><th>Stakeholder</th><th>Stated need</th><th>What that required from the system</th></tr></thead>
+                  <thead>
+                    <tr>
+                      <th>Stakeholder</th>
+                      <th>Stated need</th>
+                      <th>What that required from the system</th>
+                    </tr>
+                  </thead>
+
                   <tbody>
-                    <tr><td><strong>Teacher</strong></td><td>"I need to see who hasn't submitted"</td><td>One status per student per assignment, filterable, with an action-required distinction</td></tr>
-                    <tr><td><strong>Student</strong></td><td>"I don't know if it went through"</td><td>The same status the teacher sees, with no ambiguous in-between</td></tr>
-                    <tr><td><strong>Administration</strong></td><td>"Late has to mean the same thing everywhere"</td><td>Lateness derived from one rule, not set per view</td></tr>
-                    <tr><td><strong>Product</strong></td><td>"It has to hold when we add assignment types"</td><td>A state model independent of assignment type</td></tr>
-                    <tr><td><strong>Engineering</strong></td><td>"Tell us the actual states"</td><td>Explicit states and permitted transitions, not adjectives</td></tr>
-                    <tr><td><strong>QA</strong></td><td>"How do I know it's right?"</td><td>Each transition observable and independently testable</td></tr>
+                    <tr>
+                      <td><strong>Teacher</strong></td>
+                      <td>"I need to see who hasn't submitted"</td>
+                      <td>One status per student per assignment, filterable, with an action-required distinction</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Student</strong></td>
+                      <td>"I don't know if it went through"</td>
+                      <td>The same status the teacher sees, with no ambiguous in-between</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Administration</strong></td>
+                      <td>"Late has to mean the same thing everywhere"</td>
+                      <td>Lateness derived from one rule, not set per view</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Product</strong></td>
+                      <td>"It has to hold when we add assignment types"</td>
+                      <td>A state model independent of assignment type</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Engineering</strong></td>
+                      <td>"Tell us the actual states"</td>
+                      <td>Explicit states and permitted transitions, not adjectives</td>
+                    </tr>
+                    <tr>
+                      <td><strong>QA</strong></td>
+                      <td>"How do I know it's right?"</td>
+                      <td>Each transition observable and independently testable</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -1059,38 +2067,99 @@
 
             <div>
               <h4 class="art__h">State transition table</h4>
+
               <div class="tblwrap">
                 <table>
-                  <thead><tr><th>Current state</th><th>Event</th><th>New state</th><th>Late flag</th><th>Action required</th></tr></thead>
+                  <thead>
+                    <tr>
+                      <th>Current state</th>
+                      <th>Event</th>
+                      <th>New state</th>
+                      <th>Late flag</th>
+                      <th>Action required</th>
+                    </tr>
+                  </thead>
+
                   <tbody>
-                    <tr><td><strong>Not started</strong></td><td>Student begins work</td><td>In progress</td><td>No</td><td>No</td></tr>
-                    <tr><td><strong>In progress</strong></td><td>Submit before deadline</td><td>Submitted</td><td>No</td><td>Yes &mdash; teacher review</td></tr>
-                    <tr><td><strong>In progress</strong></td><td>Submit after deadline</td><td>Submitted</td><td class="yes">Yes &mdash; set once</td><td>Yes &mdash; teacher review</td></tr>
-                    <tr><td><strong>In progress</strong></td><td>Deadline passes, no submission</td><td>In progress</td><td>Not applicable</td><td>Yes &mdash; non-submitter</td></tr>
-                    <tr><td><strong>Submitted</strong></td><td>Teacher returns for revision</td><td>Returned</td><td>Retained</td><td>No &mdash; with student</td></tr>
-                    <tr><td><strong>Returned</strong></td><td>Student submits again</td><td>Resubmitted</td><td>Retained from original</td><td>Yes &mdash; teacher review</td></tr>
-                    <tr><td><strong>Submitted / Resubmitted</strong></td><td>Teacher marks complete</td><td>Completed</td><td>Retained</td><td>No</td></tr>
-                    <tr><td><strong>Completed</strong></td><td>Any submission event</td><td colspan="3">Rejected &mdash; undefined transition, logged</td></tr>
+                    <tr>
+                      <td><strong>Not started</strong></td>
+                      <td>Student begins work</td>
+                      <td>In progress</td>
+                      <td>No</td>
+                      <td>No</td>
+                    </tr>
+                    <tr>
+                      <td><strong>In progress</strong></td>
+                      <td>Submit before deadline</td>
+                      <td>Submitted</td>
+                      <td>No</td>
+                      <td>Yes &mdash; teacher review</td>
+                    </tr>
+                    <tr>
+                      <td><strong>In progress</strong></td>
+                      <td>Submit after deadline</td>
+                      <td>Submitted</td>
+                      <td class="yes">Yes &mdash; set once</td>
+                      <td>Yes &mdash; teacher review</td>
+                    </tr>
+                    <tr>
+                      <td><strong>In progress</strong></td>
+                      <td>Deadline passes, no submission</td>
+                      <td>In progress</td>
+                      <td>Not applicable</td>
+                      <td>Yes &mdash; non-submitter</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Submitted</strong></td>
+                      <td>Teacher returns for revision</td>
+                      <td>Returned</td>
+                      <td>Retained</td>
+                      <td>No &mdash; with student</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Returned</strong></td>
+                      <td>Student submits again</td>
+                      <td>Resubmitted</td>
+                      <td>Retained from original</td>
+                      <td>Yes &mdash; teacher review</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Submitted / Resubmitted</strong></td>
+                      <td>Teacher marks complete</td>
+                      <td>Completed</td>
+                      <td>Retained</td>
+                      <td>No</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Completed</strong></td>
+                      <td>Any submission event</td>
+                      <td colspan="3">Rejected &mdash; undefined transition, logged</td>
+                    </tr>
                   </tbody>
-                  <caption>The "Late flag" column is where the modelling decision pays off. Because lateness is set once and retained rather than recomputed, a returned-and-resubmitted item keeps its original history instead of quietly becoming on-time.</caption>
+
+                  <caption>Because lateness is stored separately from state, a returned and resubmitted item can retain its original submission history without creating contradictory statuses.</caption>
                 </table>
               </div>
             </div>
 
             <div>
               <h4 class="art__h">Functional requirements</h4>
+
               <div class="req">
                 <span class="req__id">FR-01 &nbsp;Single submission state</span>
                 <p>Each student assignment shall hold exactly one submission state at any time, drawn from the defined state set. Views shall render this state rather than deriving their own.</p>
               </div>
+
               <div class="req">
                 <span class="req__id">FR-02 &nbsp;Lateness as an attribute</span>
                 <p>Lateness shall be evaluated once at submission against the assignment due date and stored as an attribute of the submission. Lateness shall not alter the submission state.</p>
               </div>
+
               <div class="req">
                 <span class="req__id">FR-03 &nbsp;Action-required derivation</span>
                 <p>The system shall derive an action-required indicator for the teacher from submission state and shall not require the teacher to configure it.</p>
               </div>
+
               <div class="req">
                 <span class="req__id">FR-04 &nbsp;Transition integrity</span>
                 <p>The system shall permit only the transitions defined in the state model. Attempts at undefined transitions shall be rejected and logged.</p>
@@ -1099,20 +2168,24 @@
 
             <div>
               <h4 class="art__h">Acceptance criteria</h4>
+
               <div class="req">
                 <span class="req__id">US-01 &nbsp;Assignment submission visibility</span>
                 <p><strong>As a</strong> teacher, <strong>I want to</strong> see the submission status of every student for an assignment, <strong>so that</strong> I know who needs my attention without opening each one.</p>
               </div>
+
               <div class="gwt"><span class="sc">Scenario 1 — On-time submission</span><b>Given</b> a student submits before the due date
 <b>When</b> the teacher views the assignment roster
 <b>Then</b> the student shows as Submitted
 <b>And</b> no late indicator is shown
 <b>And</b> the student sees the same status.</div>
+
               <div class="gwt"><span class="sc">Scenario 2 — Late submission</span><b>Given</b> a student submits after the due date
 <b>When</b> the teacher views the assignment roster
 <b>Then</b> the student shows as Submitted with a late indicator
 <b>And</b> the item appears under action required
 <b>And</b> lateness is not recalculated on subsequent views.</div>
+
               <div class="gwt"><span class="sc">Scenario 3 — Returned and resubmitted</span><b>Given</b> a submission has been returned for revision
 <b>When</b> the student resubmits
 <b>Then</b> the state becomes Resubmitted
@@ -1122,15 +2195,43 @@
 
             <div>
               <h4 class="art__h">UAT approach</h4>
+
               <div class="tblwrap">
                 <table>
-                  <thead><tr><th>UAT scenario</th><th>Participant</th><th>Pass condition</th></tr></thead>
+                  <thead>
+                    <tr>
+                      <th>UAT scenario</th>
+                      <th>Participant</th>
+                      <th>Pass condition</th>
+                    </tr>
+                  </thead>
+
                   <tbody>
-                    <tr><td>Identify all non-submitters for one assignment</td><td>Teacher</td><td>Completed without opening individual submissions</td></tr>
-                    <tr><td>Distinguish late from on-time at a glance</td><td>Teacher</td><td>Correct on every row, unprompted</td></tr>
-                    <tr><td>Confirm own submission went through</td><td>Student</td><td>Status found without asking the teacher</td></tr>
-                    <tr><td>Return, resubmit, re-review</td><td>Teacher + student</td><td>Both see consistent status at each step</td></tr>
-                    <tr><td>Compare lateness across two class sections</td><td>Administrator</td><td>Identical rule applied in both</td></tr>
+                    <tr>
+                      <td>Identify all non-submitters for one assignment</td>
+                      <td>Teacher</td>
+                      <td>Completed without opening individual submissions</td>
+                    </tr>
+                    <tr>
+                      <td>Distinguish late from on-time at a glance</td>
+                      <td>Teacher</td>
+                      <td>Correct on every row, unprompted</td>
+                    </tr>
+                    <tr>
+                      <td>Confirm own submission went through</td>
+                      <td>Student</td>
+                      <td>Status found without asking the teacher</td>
+                    </tr>
+                    <tr>
+                      <td>Return, resubmit, re-review</td>
+                      <td>Teacher + student</td>
+                      <td>Both see consistent status at each step</td>
+                    </tr>
+                    <tr>
+                      <td>Compare lateness across two class sections</td>
+                      <td>Administrator</td>
+                      <td>Identical rule applied in both</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -1138,16 +2239,45 @@
 
             <div>
               <h4 class="art__h">Full measure set</h4>
+
               <div class="tblwrap">
                 <table>
-                  <thead><tr><th>Measure</th><th>Definition</th><th>Why it matters</th></tr></thead>
+                  <thead>
+                    <tr>
+                      <th>Measure</th>
+                      <th>Definition</th>
+                      <th>Why it matters</th>
+                    </tr>
+                  </thead>
+
                   <tbody>
-                    <tr><td><strong>Status agreement</strong></td><td>Teacher and student views showing identical status</td><td>The whole premise of the feature &mdash; ranked first</td></tr>
-                    <tr><td><strong>Task completion, unaided</strong></td><td>UAT participants identifying non-submitters without help</td><td>The stated need was visibility, not more clicks</td></tr>
-                    <tr><td><strong>Undefined transitions</strong></td><td>State changes outside the defined model</td><td>Any occurrence means the model is not actually enforced</td></tr>
-                    <tr><td><strong>Support contacts on status</strong></td><td>Tickets asking what a status means, vs. pre-release baseline</td><td>Direct read on whether the vocabulary problem was solved</td></tr>
-                    <tr><td><strong>Requirement rework</strong></td><td>AC amended after development started</td><td>Tells you whether the state model was agreed or assumed</td></tr>
+                    <tr>
+                      <td><strong>Status agreement</strong></td>
+                      <td>Teacher and student views showing identical status</td>
+                      <td>Confirms the same submission is interpreted consistently across views</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Task completion, unaided</strong></td>
+                      <td>UAT participants identifying non-submitters without help</td>
+                      <td>Tests whether the visibility problem was actually improved</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Undefined transitions</strong></td>
+                      <td>State changes outside the defined model</td>
+                      <td>Shows whether the agreed state model is being enforced</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Support contacts on status</strong></td>
+                      <td>Tickets asking what a status means, vs. pre-release baseline</td>
+                      <td>Shows whether users still find the terminology ambiguous</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Requirement rework</strong></td>
+                      <td>AC amended after development started</td>
+                      <td>Highlights gaps in the agreed state model before delivery</td>
+                    </tr>
                   </tbody>
+
                   <caption>Measures representative of how I would evaluate this solution. Historical production figures are not disclosed.</caption>
                 </table>
               </div>
@@ -1157,50 +2287,80 @@
         </details>
 
         <div class="outcome">
-          <p class="lbl">What this demonstrates</p>
-          <p>Recognising a definition problem behind a stated visibility problem, resolving it with an explicit state model and transition table, translating six stakeholder groups' needs into one shared artifact, and carrying it through to testable acceptance criteria and a UAT plan.</p>
+          <p class="lbl">My contribution</p>
+          <p>I reframed a visibility request as a definition problem, created a shared state and transition model, and carried that model through requirements, acceptance criteria, and UAT scenarios.</p>
         </div>
 
         <div class="chips">
-          <span class="chip">Requirements engineering</span><span class="chip">State modelling</span><span class="chip">Stakeholder facilitation</span><span class="chip">Acceptance criteria</span><span class="chip">UAT design</span>
+          <span class="chip">Requirements engineering</span>
+          <span class="chip">State modelling</span>
+          <span class="chip">Stakeholder facilitation</span>
+          <span class="chip">Acceptance criteria</span>
+          <span class="chip">UAT design</span>
         </div>
+
       </div>
     </div>
   </article>
 
   <!-- ==================== CASE 04 ==================== -->
+
   <article class="case reveal" id="c4">
     <div class="case__grid">
+
       <aside class="case__aside">
         <span class="case__num">Case 04 &nbsp;/&nbsp; 2025 &ndash; 2026</span>
+
         <dl class="case__facts">
-          <div><dt class="lbl">Sector</dt><dd>Humanitarian, national organization</dd></div>
-          <div><dt class="lbl">Engagement</dt><dd>Business engagement initiatives, no system and no backlog</dd></div>
-          <div><dt class="lbl">Role</dt><dd>BA across business and technology stakeholders</dd></div>
+          <div>
+            <dt class="lbl">Sector</dt>
+            <dd>Humanitarian, national organization</dd>
+          </div>
+          <div>
+            <dt class="lbl">Engagement</dt>
+            <dd>Business engagement initiatives, no system and no backlog</dd>
+          </div>
+          <div>
+            <dt class="lbl">Role</dt>
+            <dd>BA across business and technology stakeholders</dd>
+          </div>
         </dl>
+
         <span class="badge">Reconstructed</span>
       </aside>
 
       <div>
         <h2>Process transformation with no system to point at</h2>
+
         <p class="premise">No backlog, no product, no obvious solution — just business initiatives and stakeholders who described the same process five different ways.</p>
 
         <dl class="sit">
-          <div><dt>Starting point</dt><dd>Outcomes stated, current state undocumented</dd></div>
-          <div><dt>Open question</dt><dd>Whether technology was the answer at all</dd></div>
-          <div><dt>First job</dt><dd>One agreed picture of today</dd></div>
+          <div>
+            <dt>Starting point</dt>
+            <dd>Outcomes stated, current state undocumented</dd>
+          </div>
+          <div>
+            <dt>Open question</dt>
+            <dd>Whether technology was the answer at all</dd>
+          </div>
+          <div>
+            <dt>First job</dt>
+            <dd>One agreed picture of today</dd>
+          </div>
         </dl>
 
-        <p class="lead">Each business unit saw only its own segment, so every account of "how it works" was partially right. Establishing an agreed current state was the precondition for every other conversation.</p>
+        <p class="lead">Different stakeholders described different parts of the same process, and each version was only partially complete. I started by bringing those views together into one current-state process that everyone could review before we discussed solutions.</p>
 
         <div class="dia">
           <div class="dia__h">
             <b>Current state to future state</b>
             <p class="lbl">Artifact &mdash; as-is / to-be</p>
           </div>
+
           <div class="flowpair">
             <section>
               <h4>Current &mdash; 7 steps, 3 systems, manual throughout</h4>
+
               <div class="flowwrap">
                 <div class="flow flow--h">
                   <div class="step">Request raised informally</div>
@@ -1213,8 +2373,10 @@
                 </div>
               </div>
             </section>
+
             <section>
               <h4><b>Future &mdash; 6 steps, one record, validated at entry</b></h4>
+
               <div class="flowwrap">
                 <div class="flow flow--h">
                   <div class="step step--start">Structured intake</div>
@@ -1227,43 +2389,85 @@
               </div>
             </section>
           </div>
-          <p class="dia__note">The saving isn't one fewer step. It's that re-keying and manual assembly disappear, and status becomes knowable without asking a person.</p>
+
+          <p class="dia__note">The value isn't simply reducing the number of steps. The future state removes duplicate entry, reduces manual reporting, and makes request status visible without relying on someone's inbox.</p>
         </div>
 
         <div class="stats">
           <div class="stat">
-            <span class="stat__k">Gates everything</span>
+            <span class="stat__k">Key measure</span>
             <span class="stat__v">Current-state sign-off</span>
             <span class="stat__n">Business units confirming the as-is map matches how they actually work.</span>
           </div>
+
           <div class="stat">
-            <span class="stat__k">The rework measure</span>
+            <span class="stat__k">Key measure</span>
             <span class="stat__v">Intake completeness</span>
             <span class="stat__n">Requests accepted with all required information at first submission.</span>
           </div>
+
           <div class="stat">
-            <span class="stat__k">The handover measure</span>
+            <span class="stat__k">Key measure</span>
             <span class="stat__v">Traceability coverage</span>
             <span class="stat__n">Requirements traceable to a stated business need and a UAT scenario.</span>
           </div>
         </div>
-        <p class="stats__cap">Success measures I would define for this engagement. Sign-off is listed first deliberately: it measures whether the analysis was trusted, and everything downstream depends on it.</p>
+
+        <p class="stats__cap">These are representative measures I would use for this type of engagement. I would start with current-state sign-off because solution design is difficult to trust if the business does not first agree on how the process works today.</p>
 
         <details class="arts">
-          <summary>Full artifacts &mdash; gap analysis, requirements, traceability, measures <span class="tog"></span></summary>
+          <summary>
+            Full artifacts &mdash; gap analysis, requirements, traceability, measures
+            <span class="tog"></span>
+          </summary>
+
           <div class="arts__body">
 
             <div>
               <h4 class="art__h">Pain point and gap analysis</h4>
+
               <div class="tblwrap">
                 <table>
-                  <thead><tr><th>Pain point</th><th>Root cause</th><th>Gap</th><th>Addressed by</th></tr></thead>
+                  <thead>
+                    <tr>
+                      <th>Pain point</th>
+                      <th>Root cause</th>
+                      <th>Gap</th>
+                      <th>Addressed by</th>
+                    </tr>
+                  </thead>
+
                   <tbody>
-                    <tr><td><strong>Requests arrive incomplete</strong></td><td>No defined intake format</td><td>No validation before work begins</td><td>BR-01</td></tr>
-                    <tr><td><strong>Status is unknowable</strong></td><td>State lives in an individual's inbox</td><td>No shared record of progress</td><td>BR-02</td></tr>
-                    <tr><td><strong>Routing depends on who knows whom</strong></td><td>Undocumented allocation practice</td><td>No defined routing rules</td><td>BR-03</td></tr>
-                    <tr><td><strong>Data re-keyed between systems</strong></td><td>Two systems of record</td><td>No single authoritative record</td><td>BR-04</td></tr>
-                    <tr><td><strong>Reporting takes days</strong></td><td>Manual assembly from several sources</td><td>No structured data to report from</td><td>BR-05</td></tr>
+                    <tr>
+                      <td><strong>Requests arrive incomplete</strong></td>
+                      <td>No defined intake format</td>
+                      <td>No validation before work begins</td>
+                      <td>BR-01</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Status is unknowable</strong></td>
+                      <td>State lives in an individual's inbox</td>
+                      <td>No shared record of progress</td>
+                      <td>BR-02</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Routing depends on who knows whom</strong></td>
+                      <td>Undocumented allocation practice</td>
+                      <td>No defined routing rules</td>
+                      <td>BR-03</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Data re-keyed between systems</strong></td>
+                      <td>Two systems of record</td>
+                      <td>No single authoritative record</td>
+                      <td>BR-04</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Reporting takes days</strong></td>
+                      <td>Manual assembly from several sources</td>
+                      <td>No structured data to report from</td>
+                      <td>BR-05</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -1271,43 +2475,131 @@
 
             <div>
               <h4 class="art__h">Business requirements</h4>
-              <div class="req"><span class="req__id">BR-01 &nbsp;Structured intake</span><p>Requests shall be submitted through a defined intake format capturing all information required to begin work, with mandatory fields validated at submission.</p></div>
-              <div class="req"><span class="req__id">BR-02 &nbsp;Visible status</span><p>The current status of any request shall be visible to the requester and the reviewing business unit without contacting an individual.</p></div>
-              <div class="req"><span class="req__id">BR-03 &nbsp;Defined routing</span><p>Requests shall be routed to the responsible business unit according to documented rules based on request attributes, not individual discretion.</p></div>
-              <div class="req"><span class="req__id">BR-04 &nbsp;Single record</span><p>Each request shall exist as one authoritative record. Re-entry of the same information into a second system shall not be required.</p></div>
-              <div class="req"><span class="req__id">BR-05 &nbsp;Reporting from source</span><p>Operational reporting shall be generated from request records without manual assembly.</p></div>
+
+              <div class="req">
+                <span class="req__id">BR-01 &nbsp;Structured intake</span>
+                <p>Requests shall be submitted through a defined intake format capturing all information required to begin work, with mandatory fields validated at submission.</p>
+              </div>
+
+              <div class="req">
+                <span class="req__id">BR-02 &nbsp;Visible status</span>
+                <p>The current status of any request shall be visible to the requester and the reviewing business unit without contacting an individual.</p>
+              </div>
+
+              <div class="req">
+                <span class="req__id">BR-03 &nbsp;Defined routing</span>
+                <p>Requests shall be routed to the responsible business unit according to documented rules based on request attributes, not individual discretion.</p>
+              </div>
+
+              <div class="req">
+                <span class="req__id">BR-04 &nbsp;Single record</span>
+                <p>Each request shall exist as one authoritative record. Re-entry of the same information into a second system shall not be required.</p>
+              </div>
+
+              <div class="req">
+                <span class="req__id">BR-05 &nbsp;Reporting from source</span>
+                <p>Operational reporting shall be generated from request records without manual assembly.</p>
+              </div>
             </div>
 
             <div>
               <h4 class="art__h">Traceability matrix</h4>
+
               <div class="tblwrap">
                 <table>
-                  <thead><tr><th>Business need</th><th>Requirement</th><th>Solution element</th><th>UAT scenario</th></tr></thead>
+                  <thead>
+                    <tr>
+                      <th>Business need</th>
+                      <th>Requirement</th>
+                      <th>Solution element</th>
+                      <th>UAT scenario</th>
+                    </tr>
+                  </thead>
+
                   <tbody>
-                    <tr><td>Reduce rework from incomplete requests</td><td>BR-01</td><td>Intake form with validation</td><td>UAT-01 Submit an incomplete request</td></tr>
-                    <tr><td>Remove status-chasing effort</td><td>BR-02</td><td>Status field on shared record</td><td>UAT-02 Check status as requester</td></tr>
-                    <tr><td>Make allocation consistent</td><td>BR-03</td><td>Routing rule configuration</td><td>UAT-03 Route by request type</td></tr>
-                    <tr><td>Eliminate duplicate entry</td><td>BR-04</td><td>Central record, downstream integration</td><td>UAT-04 Trace one request end to end</td></tr>
-                    <tr><td>Shorten reporting cycle</td><td>BR-05</td><td>Report generated from records</td><td>UAT-05 Produce a period report</td></tr>
+                    <tr>
+                      <td>Reduce rework from incomplete requests</td>
+                      <td>BR-01</td>
+                      <td>Intake form with validation</td>
+                      <td>UAT-01 Submit an incomplete request</td>
+                    </tr>
+                    <tr>
+                      <td>Remove status-chasing effort</td>
+                      <td>BR-02</td>
+                      <td>Status field on shared record</td>
+                      <td>UAT-02 Check status as requester</td>
+                    </tr>
+                    <tr>
+                      <td>Make allocation consistent</td>
+                      <td>BR-03</td>
+                      <td>Routing rule configuration</td>
+                      <td>UAT-03 Route by request type</td>
+                    </tr>
+                    <tr>
+                      <td>Eliminate duplicate entry</td>
+                      <td>BR-04</td>
+                      <td>Central record, downstream integration</td>
+                      <td>UAT-04 Trace one request end to end</td>
+                    </tr>
+                    <tr>
+                      <td>Shorten reporting cycle</td>
+                      <td>BR-05</td>
+                      <td>Report generated from records</td>
+                      <td>UAT-05 Produce a period report</td>
+                    </tr>
                   </tbody>
-                  <caption>The matrix is the artifact that survives handover — it lets someone who wasn't in the workshops see why each requirement exists.</caption>
+
+                  <caption>This gives the delivery team traceability from the original business need through to the UAT scenario, even if they were not part of the initial discovery sessions.</caption>
                 </table>
               </div>
             </div>
 
             <div>
               <h4 class="art__h">Full measure set</h4>
+
               <div class="tblwrap">
                 <table>
-                  <thead><tr><th>Measure</th><th>Definition</th><th>Why it matters</th></tr></thead>
+                  <thead>
+                    <tr>
+                      <th>Measure</th>
+                      <th>Definition</th>
+                      <th>Why it matters</th>
+                    </tr>
+                  </thead>
+
                   <tbody>
-                    <tr><td><strong>Current-state sign-off</strong></td><td>Units confirming the as-is map matches how they work</td><td>If the present isn't agreed, nothing about the future can be</td></tr>
-                    <tr><td><strong>Intake completeness</strong></td><td>Requests accepted complete at first submission</td><td>The single biggest source of rework in the current state</td></tr>
-                    <tr><td><strong>Status enquiries</strong></td><td>Contacts made solely to ask where a request stands</td><td>Pure waste in the as-is; a clean read on whether visibility landed</td></tr>
-                    <tr><td><strong>Duplicate entry</strong></td><td>Same information keyed into a second system</td><td>The re-keying step was the justification for a single record</td></tr>
-                    <tr><td><strong>Traceability coverage</strong></td><td>Requirements traced to a need and a UAT scenario</td><td>What lets someone who wasn't in the workshops audit the work</td></tr>
-                    <tr><td><strong>Adoption at review</strong></td><td>Requests arriving via the new intake rather than the old route</td><td>A process nobody uses is a documented process, not a changed one</td></tr>
+                    <tr>
+                      <td><strong>Current-state sign-off</strong></td>
+                      <td>Units confirming the as-is map matches how they work</td>
+                      <td>Creates a shared baseline before future-state design</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Intake completeness</strong></td>
+                      <td>Requests accepted complete at first submission</td>
+                      <td>Measures whether avoidable clarification and rework has reduced</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Status enquiries</strong></td>
+                      <td>Contacts made solely to ask where a request stands</td>
+                      <td>Shows whether the new process provides useful visibility</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Duplicate entry</strong></td>
+                      <td>Same information keyed into a second system</td>
+                      <td>Measures whether the future state actually removed re-keying</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Traceability coverage</strong></td>
+                      <td>Requirements traced to a need and a UAT scenario</td>
+                      <td>Maintains the connection between discovery and validation</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Adoption at review</strong></td>
+                      <td>Requests arriving via the new intake rather than the old route</td>
+                      <td>Shows whether the changed process is being used in practice</td>
+                    </tr>
                   </tbody>
+
                   <caption>Measures representative of how I would evaluate this engagement. Historical figures are not disclosed.</caption>
                 </table>
               </div>
@@ -1317,101 +2609,186 @@
         </details>
 
         <div class="outcome">
-          <p class="lbl">What this demonstrates</p>
-          <p>Working from business outcomes rather than a system: reconciling conflicting accounts into an agreed current state, analysing root cause rather than symptom, keeping non-technology options open during feasibility, and maintaining traceability from need through to UAT and handover.</p>
+          <p class="lbl">My contribution</p>
+          <p>I worked from the business problem rather than assuming a system change was the answer. I aligned stakeholders on the current state, mapped the gaps, translated those gaps into requirements, and maintained traceability through UAT and handover.</p>
         </div>
 
         <div class="chips">
-          <span class="chip">Process analysis</span><span class="chip">As-is / to-be</span><span class="chip">Gap analysis</span><span class="chip">Feasibility assessment</span><span class="chip">Traceability</span><span class="chip">Post-implementation review</span>
+          <span class="chip">Process analysis</span>
+          <span class="chip">As-is / to-be</span>
+          <span class="chip">Gap analysis</span>
+          <span class="chip">Feasibility assessment</span>
+          <span class="chip">Traceability</span>
+          <span class="chip">Post-implementation review</span>
         </div>
+
       </div>
     </div>
   </article>
 
   <!-- ==================== CASE 05 ==================== -->
+
   <article class="case reveal" id="c5">
     <div class="case__grid">
+
       <aside class="case__aside">
         <span class="case__num">Case 05 &nbsp;/&nbsp; Ongoing</span>
+
         <dl class="case__facts">
-          <div><dt class="lbl">Type</dt><dd>Own project, applied in current practice</dd></div>
-          <div><dt class="lbl">Problem</dt><dd>Generic AI drafts requirements fluently and wrongly</dd></div>
-          <div><dt class="lbl">Role</dt><dd>Designer and sole operator of the workflow</dd></div>
+          <div>
+            <dt class="lbl">Type</dt>
+            <dd>Own project, applied in current practice</dd>
+          </div>
+          <div>
+            <dt class="lbl">Problem</dt>
+            <dd>Generic AI drafts requirements fluently and wrongly</dd>
+          </div>
+          <div>
+            <dt class="lbl">Role</dt>
+            <dd>Designer and sole operator of the workflow</dd>
+          </div>
         </dl>
+
         <span class="badge">Own work</span>
       </aside>
 
       <div>
         <h2>AI-assisted requirements, with the judgment left in</h2>
+
         <p class="premise">The failure mode of AI in analysis isn't bad writing. It's confident writing that's wrong in ways only someone who knows the product can see.</p>
 
         <dl class="sit">
-          <div><dt>Temptation</dt><dd>Prompt it and paste the output</dd></div>
-          <div><dt>Failure mode</dt><dd>Assumptions arrive dressed as requirements</dd></div>
-          <div><dt>Design response</dt><dd>A workflow with explicit human gates</dd></div>
+          <div>
+            <dt>Temptation</dt>
+            <dd>Prompt it and paste the output</dd>
+          </div>
+          <div>
+            <dt>Failure mode</dt>
+            <dd>Assumptions arrive dressed as requirements</dd>
+          </div>
+          <div>
+            <dt>Design response</dt>
+            <dd>A workflow with explicit human gates</dd>
+          </div>
         </dl>
 
-        <p class="lead">AI does extraction and drafting; I do validation; the handoffs between the two are explicit. The output that matters isn't the draft — it's the questions the draft surfaces.</p>
+        <p class="lead">I use AI for extraction, first drafts, and edge-case prompts, but I keep validation with the BA. The biggest benefit for me isn't the first draft — it's surfacing missing information and unanswered questions before a story reaches refinement.</p>
 
         <div class="dia">
           <div class="dia__h">
             <b>Requirements workflow with review gates</b>
             <p class="lbl">Artifact &mdash; process design</p>
           </div>
+
           <div class="flowwrap">
             <div class="flow">
               <div class="step step--start">Stakeholder notes, design file, or ticket thread</div>
               <div class="step">AI extraction pass</div>
+
               <p class="flow__cap">Extracts</p>
+
               <div class="split">
-                <div class="opt">Problem</div><div class="opt">Users</div><div class="opt">Requirements</div><div class="opt">Rules</div><div class="opt">Open questions</div>
+                <div class="opt">Problem</div>
+                <div class="opt">Users</div>
+                <div class="opt">Requirements</div>
+                <div class="opt">Rules</div>
+                <div class="opt">Open questions</div>
               </div>
-              <div class="step step--dec"><b>BA validation gate</b><i>Reject, correct, or accept &mdash; nothing passes untouched</i></div>
+
+              <div class="step step--dec">
+                <b>BA validation gate</b>
+                <i>Reject, correct, or accept</i>
+              </div>
+
               <div class="step">Draft stories and acceptance criteria</div>
               <div class="step">Edge cases: AI-proposed, BA-extended</div>
-              <div class="step step--dec"><b>BA approval gate</b><i>Assumptions resolved, not carried forward</i></div>
+
+              <div class="step step--dec">
+                <b>BA approval gate</b>
+                <i>Resolve assumptions before refinement</i>
+              </div>
+
               <div class="step step--end">Refinement-ready backlog item</div>
             </div>
           </div>
-          <p class="dia__note">Two gates, both human. The workflow is designed so that speed can't quietly buy itself with accuracy.</p>
+
+          <p class="dia__note">Both review points stay human. AI can accelerate the analysis, but assumptions still need to be challenged and confirmed before they become requirements.</p>
         </div>
 
         <div class="stats">
           <div class="stat">
-            <span class="stat__k">Watched as a warning</span>
+            <span class="stat__k">Quality signal</span>
             <span class="stat__v">Untouched pass-through</span>
-            <span class="stat__n">AI drafts accepted with no amendment &mdash; a signal the review was too shallow, not that the draft was good.</span>
+            <span class="stat__n">AI drafts accepted with no amendment. I treat a high rate here as a reason to check whether the review is deep enough.</span>
           </div>
+
           <div class="stat">
-            <span class="stat__k">The safety measure</span>
+            <span class="stat__k">Quality signal</span>
             <span class="stat__v">Assumption leakage</span>
             <span class="stat__n">Inferred content reaching acceptance criteria without human confirmation.</span>
           </div>
+
           <div class="stat">
-            <span class="stat__k">The value measure</span>
+            <span class="stat__k">Value signal</span>
             <span class="stat__v">Questions surfaced early</span>
-            <span class="stat__n">Open questions raised before the team sees a story, rather than during refinement.</span>
+            <span class="stat__n">Open questions raised before the team sees a story rather than during refinement.</span>
           </div>
         </div>
-        <p class="stats__cap">Success measures I hold this workflow to. Two of the three measure its failure modes rather than its speed — that ordering is the point.</p>
+
+        <p class="stats__cap">I care more about whether this workflow catches missing information than how quickly it produces text. Drafting speed is useful, but only if the resulting story is also better prepared for refinement.</p>
 
         <details class="arts">
-          <summary>Full artifacts &mdash; worked example, governance rules, measures <span class="tog"></span></summary>
+          <summary>
+            Full artifacts &mdash; worked example, governance rules, measures
+            <span class="tog"></span>
+          </summary>
+
           <div class="arts__body">
 
             <div>
               <h4 class="art__h">Worked example</h4>
+
               <div class="tblwrap">
                 <table>
-                  <thead><tr><th style="width:22%">Stage</th><th>Content</th></tr></thead>
+                  <thead>
+                    <tr>
+                      <th style="width:22%">Stage</th>
+                      <th>Content</th>
+                    </tr>
+                  </thead>
+
                   <tbody>
-                    <tr><td><strong>Raw stakeholder note</strong></td><td>"Users should be able to cancel a booking. Obviously not once it's started. Refund handling is the same as today."</td></tr>
-                    <tr><td><strong>AI draft</strong></td><td>"As a user, I want to cancel a booking so that I can free up my schedule. <em>AC:</em> Given a booking exists, when the user selects Cancel, then the booking is cancelled and a refund is issued per existing policy."</td></tr>
-                    <tr><td><strong>What I rejected</strong></td><td>The refund clause. "Same as today" is an assumption presented as a requirement — nobody had confirmed which of three existing refund paths applied. Also the unqualified "a booking exists" precondition, which quietly contradicts the stakeholder's own exclusion.</td></tr>
-                    <tr><td><strong>What I changed</strong></td><td>Split cancellation and refund into separate concerns. Made "started" an explicit defined state rather than an adjective. Added the states the note never mentioned: already cancelled, in progress, completed, and cancellation attempted during a payment retry.</td></tr>
-                    <tr><td><strong>Sent back to the stakeholder</strong></td><td>Three questions the AI surfaced and could not answer: which refund path applies, whether "started" means scheduled start or actual commencement, and who may cancel on another user's behalf.</td></tr>
-                    <tr><td><strong>Final requirement</strong></td><td>Cancellation permitted only from defined pre-commencement states, with "commenced" defined against actual start; refund treatment specified per path and confirmed by the business owner; delegated cancellation deferred to a separate story with its own permissions analysis.</td></tr>
+                    <tr>
+                      <td><strong>Raw stakeholder note</strong></td>
+                      <td>"Users should be able to cancel a booking. Obviously not once it's started. Refund handling is the same as today."</td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>AI draft</strong></td>
+                      <td>"As a user, I want to cancel a booking so that I can free up my schedule. <em>AC:</em> Given a booking exists, when the user selects Cancel, then the booking is cancelled and a refund is issued per existing policy."</td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>What I rejected</strong></td>
+                      <td>The refund clause. "Same as today" had been converted into a requirement without confirming which existing refund path applied. The draft also treated any existing booking as cancellable even though the stakeholder had already mentioned an exclusion.</td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>What I changed</strong></td>
+                      <td>I separated cancellation and refund into different concerns, defined what "started" needed to mean, and added states the original note did not cover: already cancelled, in progress, completed, and cancellation attempted during a payment retry.</td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Sent back to the stakeholder</strong></td>
+                      <td>Which refund path applies? Does "started" mean scheduled start or actual commencement? Who, if anyone, may cancel on another user's behalf?</td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Final requirement</strong></td>
+                      <td>Cancellation permitted only from defined pre-commencement states, with "commenced" defined against actual start; refund treatment specified per path and confirmed by the business owner; delegated cancellation deferred to a separate story with its own permissions analysis.</td>
+                    </tr>
                   </tbody>
+
                   <caption>Synthetic example. The point is the shape of the intervention, not the domain.</caption>
                 </table>
               </div>
@@ -1419,24 +2796,69 @@
 
             <div>
               <h4 class="art__h">Governance rules the workflow is held to</h4>
-              <div class="req"><span class="req__id">G-01 &nbsp;Evidence attached</span><p>Any AI-produced statement about existing behavior must cite where it came from — a ticket, a comment, a design file, code. Unsourced claims about the product are discarded, not verified later.</p></div>
-              <div class="req"><span class="req__id">G-02 &nbsp;Assumptions surface, never settle</span><p>Where the AI has inferred something, it must be marked as an assumption. Assumptions leave the workflow as questions to a human, never as acceptance criteria.</p></div>
-              <div class="req"><span class="req__id">G-03 &nbsp;The BA owns the artifact</span><p>Nothing reaches refinement without being read and amended by me. Output that passes through untouched is treated as a signal the review was too shallow, not that the draft was perfect.</p></div>
-              <div class="req"><span class="req__id">G-04 &nbsp;Estimation is advisory</span><p>Where AI assists with sizing, it reports a range with its comparables and reasoning exposed so the team can disagree with the basis. It does not set the number.</p></div>
+
+              <div class="req">
+                <span class="req__id">G-01 &nbsp;Evidence attached</span>
+                <p>Any AI-produced statement about existing behavior must be traceable to the source material it came from, such as a ticket, comment, design file, or documented product behaviour.</p>
+              </div>
+
+              <div class="req">
+                <span class="req__id">G-02 &nbsp;Assumptions surface, never settle</span>
+                <p>Where the AI has inferred something, I keep it visible as an assumption or open question until it can be confirmed. It does not become acceptance criteria by default.</p>
+              </div>
+
+              <div class="req">
+                <span class="req__id">G-03 &nbsp;The BA owns the artifact</span>
+                <p>Nothing reaches refinement without being reviewed by me. I validate the business logic, remove unsupported assumptions, and add the product context the AI cannot reliably infer on its own.</p>
+              </div>
+
+              <div class="req">
+                <span class="req__id">G-04 &nbsp;Estimation is advisory</span>
+                <p>Where AI assists with sizing, it provides supporting reasoning and comparable work for the team to review. It does not replace team estimation or set the final number.</p>
+              </div>
             </div>
 
             <div>
               <h4 class="art__h">Full measure set</h4>
+
               <div class="tblwrap">
                 <table>
-                  <thead><tr><th>Measure</th><th>Definition</th><th>Direction</th></tr></thead>
+                  <thead>
+                    <tr>
+                      <th>Measure</th>
+                      <th>Definition</th>
+                      <th>Direction</th>
+                    </tr>
+                  </thead>
+
                   <tbody>
-                    <tr><td><strong>Questions surfaced pre-refinement</strong></td><td>Open questions raised before the team sees a story</td><td>Up</td></tr>
-                    <tr><td><strong>Refinement rework</strong></td><td>Stories sent back for missing detail</td><td>Down</td></tr>
-                    <tr><td><strong>Draft-to-ready time</strong></td><td>Input material to refinement-ready story</td><td>Down</td></tr>
-                    <tr><td><strong>Untouched pass-through</strong></td><td>AI drafts accepted with no BA amendment</td><td>Near zero</td></tr>
-                    <tr><td><strong>Assumption leakage</strong></td><td>Inferred content reaching AC unconfirmed</td><td>Zero</td></tr>
+                    <tr>
+                      <td><strong>Questions surfaced pre-refinement</strong></td>
+                      <td>Open questions raised before the team sees a story</td>
+                      <td>Up</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Refinement rework</strong></td>
+                      <td>Stories sent back for missing detail</td>
+                      <td>Down</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Draft-to-ready time</strong></td>
+                      <td>Input material to refinement-ready story</td>
+                      <td>Down</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Untouched pass-through</strong></td>
+                      <td>AI drafts accepted with no BA amendment</td>
+                      <td>Monitor</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Assumption leakage</strong></td>
+                      <td>Inferred content reaching AC unconfirmed</td>
+                      <td>Zero</td>
+                    </tr>
                   </tbody>
+
                   <caption>Directional rather than numeric &mdash; this is live practice, and production figures are not disclosed.</caption>
                 </table>
               </div>
@@ -1446,52 +2868,74 @@
         </details>
 
         <div class="outcome">
-          <p class="lbl">Where this stands</p>
-          <p>In active use for story development, design-to-requirements translation, and delivery reporting, with an evidence-grounded estimation aid in rollout. The value isn't drafting speed — it's that historical context and open questions surface before planning instead of during it.</p>
+          <p class="lbl">How I use this today</p>
+          <p>I use this approach for story development, design-to-requirements translation, and delivery documentation. The main benefit is not simply writing faster — it's getting historical context, assumptions, and open questions in front of me earlier in the analysis.</p>
         </div>
 
         <div class="chips">
-          <span class="chip">AI workflow design</span><span class="chip">Prompt and context engineering</span><span class="chip">BA governance</span><span class="chip">Requirements automation</span><span class="chip">Human-in-the-loop</span>
+          <span class="chip">AI workflow design</span>
+          <span class="chip">Prompt and context engineering</span>
+          <span class="chip">BA governance</span>
+          <span class="chip">Requirements automation</span>
+          <span class="chip">Human-in-the-loop</span>
         </div>
+
       </div>
     </div>
   </article>
 
 </div>
 
+<!-- ==================== HOW I WORK ==================== -->
+
 <section class="practice" id="practice">
   <div class="shell">
+
     <p class="lbl">How I work</p>
-    <h2>Four things that show up in every case study above</h2>
+    <h2>A few principles I bring into the work</h2>
+
     <div class="practice__grid">
+
       <article>
-        <h3>Edge cases before happy paths</h3>
-        <p>The happy path writes itself. What decides whether a feature survives production is the states nobody wanted to think about — and those belong in acceptance criteria, not a defect report.</p>
+        <h3>Edge cases early</h3>
+        <p>I try to identify exceptions while the requirement is still being shaped, not after development starts. They usually expose missing rules, dependencies, or states that the happy path doesn't show.</p>
       </article>
+
       <article>
-        <h3>Find the rules under the request</h3>
-        <p>A one-line request usually hides a rule set nobody has written down. Surfacing it before estimation is cheap. Discovering it after release is not.</p>
+        <h3>Find the rules behind the request</h3>
+        <p>A stakeholder request often describes the desired change without describing all of the conditions around it. I spend time finding those rules before turning the request into stories.</p>
       </article>
+
       <article>
-        <h3>Requirements as a shared object</h3>
-        <p>A story is done when product, engineering, and QA read it the same way. If three people need three conversations to interpret it, it isn't finished — it's a meeting invitation.</p>
+        <h3>Requirements everyone can use</h3>
+        <p>I write requirements for Product, Engineering, and QA to work from together. If the same story is being interpreted three different ways, I treat that as a requirements problem that still needs resolving.</p>
       </article>
+
       <article>
-        <h3>AI with the evidence attached</h3>
-        <p>I use AI heavily and trust it conditionally. Output should carry its reasoning and sources, so a person can disagree on specifics rather than accept or reject it whole.</p>
+        <h3>AI as an analysis tool</h3>
+        <p>I use AI regularly for extraction, drafting, comparison, and finding possible gaps. I still validate the business logic myself and keep assumptions visible until a person can confirm them.</p>
       </article>
+
     </div>
   </div>
 </section>
 
+<!-- ==================== CONTACT ==================== -->
+
 <section class="contact shell" id="contact">
   <p class="lbl">Get in touch</p>
-  <h2>Happy to walk through any of these in detail.</h2>
-  <p>Including the named context, the real constraints, and the parts that didn't go to plan. These also work as a requirements sample if that's what you're after.</p>
+
+  <h2>Want to talk through the work?</h2>
+
+  <p>I'm happy to walk through any of these case studies in more detail, including how I approached the requirements, trade-offs, edge cases, and delivery decisions.</p>
+
   <div class="contact__links">
     <a class="btn btn--solid" href="mailto:canaresnina@gmail.com">canaresnina@gmail.com</a>
+
     <a class="btn inlink" href="https://www.linkedin.com/in/ninacanares" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 23 10.9 23 14.1V21h-4v-6.1c0-1.46-.03-3.34-2.03-3.34-2.03 0-2.34 1.59-2.34 3.23V21h-4V9Z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 23 10.9 23 14.1V21h-4v-6.1c0-1.46-.03-3.34-2.03-3.34-2.03 0-2.34 1.59-2.34 3.23V21h-4V9Z"/>
+      </svg>
       linkedin.com/in/ninacanares
     </a>
   </div>
@@ -1500,44 +2944,82 @@
 <footer class="foot shell">
   <span>Nina Bernardo &middot; Senior Business Analyst / Product Owner</span>
   <span>Metro Manila, Philippines</span>
+
   <a class="inlink" href="https://www.linkedin.com/in/ninacanares" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 23 10.9 23 14.1V21h-4v-6.1c0-1.46-.03-3.34-2.03-3.34-2.03 0-2.34 1.59-2.34 3.23V21h-4V9Z"/></svg>
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 23 10.9 23 14.1V21h-4v-6.1c0-1.46-.03-3.34-2.03-3.34-2.03 0-2.34 1.59-2.34 3.23V21h-4V9Z"/>
+    </svg>
     linkedin.com/in/ninacanares
   </a>
+
   <a href="mailto:canaresnina@gmail.com">canaresnina@gmail.com</a>
+
   <span>All case studies reconstructed &middot; no confidential material</span>
 </footer>
 
 <script>
   (function () {
     var bar = document.getElementById('progress');
-    var links = Array.prototype.slice.call(document.querySelectorAll('.nav__links a'));
-    var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+
+    var links = Array.prototype.slice.call(
+      document.querySelectorAll('.nav__links a')
+    );
+
+    var targets = links.map(function (a) {
+      return document.querySelector(a.getAttribute('href'));
+    });
 
     function onScroll() {
       var h = document.documentElement.scrollHeight - window.innerHeight;
       var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+
       bar.style.width = pct.toFixed(2) + '%';
+
       var active = -1;
+
       for (var i = 0; i < targets.length; i++) {
-        if (targets[i] && targets[i].getBoundingClientRect().top <= 140) active = i;
+        if (
+          targets[i] &&
+          targets[i].getBoundingClientRect().top <= 140
+        ) {
+          active = i;
+        }
       }
-      links.forEach(function (a, i) { a.classList.toggle('is-active', i === active); });
+
+      links.forEach(function (a, i) {
+        a.classList.toggle('is-active', i === active);
+      });
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
+
     onScroll();
 
-    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
-        });
-      }, { rootMargin: '0px 0px -12% 0px' });
-      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+    if (
+      'IntersectionObserver' in window &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      var io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-in');
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { rootMargin: '0px 0px -12% 0px' }
+      );
+
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        io.observe(el);
+      });
+
     } else {
-      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-in'); });
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        el.classList.add('is-in');
+      });
     }
   })();
 </script>
