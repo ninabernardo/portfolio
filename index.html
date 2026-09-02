@@ -591,6 +591,96 @@
       .hero h1 { font-size: 48px; }
       .case-card, .panel, .artifact { padding: 21px; }
     }
+    .case-artifacts {
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line, #d8dedc);
+}
+
+.case-artifacts__header {
+  max-width: 680px;
+  margin-bottom: 1.25rem;
+}
+
+.case-artifacts__eyebrow {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0e5a63;
+}
+
+.case-artifacts__header p {
+  margin: 0;
+  color: #596361;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.case-artifacts__links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.artifact-link {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding: 1rem 1.1rem;
+  border: 1px solid #d8dedc;
+  border-radius: 8px;
+
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.15s ease,
+              transform 0.15s ease;
+}
+
+.artifact-link:hover {
+  border-color: #0e5a63;
+  transform: translateY(-2px);
+}
+
+.artifact-link div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.artifact-link__type {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #0e5a63;
+}
+
+.artifact-link strong {
+  font-size: 0.95rem;
+}
+
+.artifact-link div > span:last-child {
+  color: #66706e;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.artifact-link__arrow {
+  font-size: 1rem;
+  color: #0e5a63;
+}
+
+@media (max-width: 700px) {
+  .case-artifacts__links {
+    grid-template-columns: 1fr;
+  }
+}
   </style>
 </head>
 
@@ -914,6 +1004,53 @@
             I also used those boundaries to separate what was safe for MVP from capabilities that needed more evidence first.
           </p>
         </div>
+        <div class="case-artifacts">
+  <div class="case-artifacts__header">
+    <span class="case-artifacts__eyebrow">Sample artifacts</span>
+    <p>
+      Reconstructed examples showing how I translated conversational
+      behavior into requirements, boundaries and escalation rules.
+    </p>
+  </div>
+
+  <div class="case-artifacts__links">
+
+    <a
+      href="AI_Leasing_Assistant_User_Stories_Acceptance_Criteria.pdf"
+      target="_blank"
+      rel="noopener"
+      class="artifact-link"
+    >
+      <div>
+        <span class="artifact-link__type">PDF</span>
+        <strong>User Stories & Acceptance Criteria</strong>
+        <span>
+          Supported intents, clarification, escalation,
+          context handling and edge cases.
+        </span>
+      </div>
+      <span class="artifact-link__arrow">↗</span>
+    </a>
+
+    <a
+      href="AI_Leasing_Assistant_Conversation_Escalation_Flow.pdf"
+      target="_blank"
+      rel="noopener"
+      class="artifact-link"
+    >
+      <div>
+        <span class="artifact-link__type">PDF</span>
+        <strong>Conversation & Escalation Flow</strong>
+        <span>
+          Decision flow from renter intent through response,
+          clarification or human handoff.
+        </span>
+      </div>
+      <span class="artifact-link__arrow">↗</span>
+    </a>
+
+  </div>
+</div>
       </div>
     </section>
 
