@@ -1545,11 +1545,8 @@
       }
     });
   </script>
-<audio id="portfolio-music" loop>
-  <source
-    src="https://cdn.pixabay.com/audio/2022/10/25/audio_946bc2e570.mp3"
-    type="audio/mpeg"
-  >
+<audio id="portfolio-music" loop preload="none">
+  <source src="work-mode.mp3" type="audio/mpeg">
 </audio>
 
 <button id="music-toggle" class="music-toggle" type="button">
@@ -1563,12 +1560,17 @@
   music.volume = 0.25;
 
   toggle.addEventListener("click", async () => {
-    if (music.paused) {
-      await music.play();
-      toggle.textContent = "❚❚ Pause";
-    } else {
-      music.pause();
-      toggle.textContent = "♫ Work Mode";
+    try {
+      if (music.paused) {
+        await music.play();
+        toggle.textContent = "❚❚ Pause";
+      } else {
+        music.pause();
+        toggle.textContent = "♫ Work Mode";
+      }
+    } catch (error) {
+      console.error("Audio playback failed:", error);
+      toggle.textContent = "Audio unavailable";
     }
   });
 </script>
