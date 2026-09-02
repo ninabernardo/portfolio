@@ -99,6 +99,61 @@
       padding: 92px 0 72px;
     }
 
+    /* HERO — TWO COLUMN LAYOUT */
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, .75fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.hero__content {
+  min-width: 0;
+}
+
+.hero__portrait {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__portrait img {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* TABLET / MOBILE */
+
+@media (max-width: 900px) {
+
+  .hero__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hero__portrait {
+    order: 2;
+  }
+
+  .hero__portrait img {
+    max-width: 460px;
+  }
+}
+
+
+@media (max-width: 520px) {
+
+  .hero__portrait img {
+    max-width: 100%;
+  }
+
+}
+
     .eyebrow,
     .case__meta,
     .artifact__label,
@@ -134,6 +189,7 @@
       flex-wrap: wrap;
       margin-top: 32px;
     }
+    
 
     .btn {
       display: inline-flex;
@@ -553,41 +609,82 @@
 
   <main id="top">
 
-    <header class="hero">
-      <div class="wrap">
-        <div class="eyebrow">Product Owner · Senior Business Analyst</div>
+   <header class="hero">
+  <div class="wrap">
 
-        <h1>Turning messy product problems into something teams can actually build.</h1>
+    <div class="hero__grid">
+
+      <!-- LEFT: INTRO -->
+      <div class="hero__content">
+
+        <div class="eyebrow">
+          Product Owner · Senior Business Analyst
+        </div>
+
+        <h1>
+          Turning messy product problems into something teams can actually build.
+        </h1>
 
         <p class="hero__lede">
-          I work across product, engineering, QA, design, and business teams to turn requirements,
-          workflows, integrations, and legacy behaviour into clear delivery decisions.
-          These case studies show the kind of analysis behind the work.
+          I work across product, engineering, QA, design, and business teams to turn
+          requirements, workflows, integrations, and legacy behaviour into clear
+          delivery decisions. These case studies show the kind of analysis behind the work.
         </p>
 
         <div class="hero__actions">
           <a class="btn btn--primary" href="#work">View case studies</a>
-          <a class="btn" href="Bernardo_Nina_Resume.pdf" target="_blank" rel="noopener">View Resume</a>
-          <a class="btn" href="https://www.linkedin.com/in/ninacanares" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="mailto:canaresnina@gmail.com">Email me</a>
+
+          <a class="btn"
+             href="Bernardo_Nina_Resume.pdf"
+             target="_blank"
+             rel="noopener">
+            View Resume
+          </a>
+
+          <a class="btn"
+             href="https://www.linkedin.com/in/ninacanares"
+             target="_blank"
+             rel="noopener">
+            LinkedIn
+          </a>
+
+          <a class="btn"
+             href="mailto:canaresnina@gmail.com">
+            Email me
+          </a>
         </div>
 
-        <div class="summary-strip">
-          <div>
-            <strong>10+ years</strong>
-            <span>SaaS, enterprise platforms, product delivery</span>
-          </div>
-          <div>
-            <strong>BA + Product Ownership</strong>
-            <span>Requirements, backlog, UAT, workflows, prioritization</span>
-          </div>
-          <div>
-            <strong>Current focus</strong>
-            <span>Modernization, AI-enabled products, delivery-ready analysis</span>
-          </div>
-        </div>
       </div>
-    </header>
+
+      <!-- RIGHT: NINA -->
+      <div class="hero__portrait">
+        <img
+          src="nina-hero.png"
+          alt="Illustration of Nina Bernardo"
+        >
+      </div>
+
+    </div>
+
+    <div class="summary-strip">
+      <div>
+        <strong>10+ years</strong>
+        <span>SaaS, enterprise platforms, product delivery</span>
+      </div>
+
+      <div>
+        <strong>BA + Product Ownership</strong>
+        <span>Requirements, backlog, UAT, workflows, prioritization</span>
+      </div>
+
+      <div>
+        <strong>Current focus</strong>
+        <span>Modernization, AI-enabled products, delivery-ready analysis</span>
+      </div>
+    </div>
+
+  </div>
+</header>
 
 
     <section class="section" id="work">
