@@ -103,8 +103,8 @@
 
 .hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(320px, .75fr);
-  gap: 48px;
+  grid-template-columns: minmax(0, 1.25fr) minmax(420px, .75fr);
+  gap: 30px;
   align-items: center;
 }
 
@@ -116,14 +116,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: center;
 }
 
 .hero__portrait img {
   display: block;
   width: 100%;
-  max-width: 520px;
+  max-width: 680px;
   height: auto;
   object-fit: contain;
+  transform: scale(1.18);
 }
 
 
@@ -165,15 +167,10 @@
       color: var(--accent);
     }
 
-    .hero h1 {
-      max-width: 920px;
-      margin: 14px 0 22px;
-      font-family: var(--serif);
-      font-size: clamp(46px, 7vw, 88px);
-      line-height: .98;
-      letter-spacing: -.045em;
-      font-weight: 600;
-    }
+   .hero h1 {
+  max-width: 900px;
+  font-size: clamp(46px, 5.8vw, 78px);
+}
 
     .hero__lede {
       max-width: 770px;
