@@ -11,6 +11,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 
   <style>
+    .music-toggle {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 45;
+
+  padding: 11px 16px;
+  border: 1px solid var(--line-dark);
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.94);
+  color: var(--accent);
+
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.music-toggle:hover {
+  border-color: var(--accent);
+}
     :root {
       --bg: #f3f5f4;
       --surface: #ffffff;
@@ -1520,6 +1545,32 @@
       }
     });
   </script>
+<audio id="portfolio-music" loop>
+  <source
+    src="https://cdn.pixabay.com/audio/2022/10/25/audio_946bc2e570.mp3"
+    type="audio/mpeg"
+  >
+</audio>
 
+<button id="music-toggle" class="music-toggle" type="button">
+  ♫ Work Mode
+</button>
+
+<script>
+  const music = document.getElementById("portfolio-music");
+  const toggle = document.getElementById("music-toggle");
+
+  music.volume = 0.25;
+
+  toggle.addEventListener("click", async () => {
+    if (music.paused) {
+      await music.play();
+      toggle.textContent = "❚❚ Pause";
+    } else {
+      music.pause();
+      toggle.textContent = "♫ Work Mode";
+    }
+  });
+</script>
 </body>
 </html>
