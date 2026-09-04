@@ -882,7 +882,7 @@
 
           <a class="case-card" href="#case6" data-track="case_06">
             <div class="case__meta">06 · AI-assisted delivery · Estimation</div>
-            <h3>Estimator Aide</h3>
+            <h3>Poker Planning - Estimation Helper</h3>
             <p>Using comparable Azure DevOps tickets and code analysis to bring historical and technical context into estimation without replacing Engineering judgment.</p>
             <div class="tags">
               <span class="tag">Azure DevOps</span>
@@ -2539,8 +2539,8 @@
         </div>
 
         <div class="context__item">
-          <span>Sources</span>
-          <strong>Comparable Azure DevOps work + relevant code context</strong>
+          <span>AI's role</span>
+          <strong>Find and synthesize comparable Azure DevOps work + code context</strong>
         </div>
 
         <div class="context__item">
@@ -2550,12 +2550,10 @@
       </div>
 
       <div>
-        <h2>Estimator Aide</h2>
+        <h2>Planning Poker - Estimation Helper</h2>
 
         <p class="case__intro">
-          Estimation conversations sometimes start with Engineering rediscovering context
-          that already exists somewhere in delivery history or the codebase. I started
-          designing an AI-assisted workflow to bring that evidence into the conversation earlier.
+         Estimation conversations sometimes start with Engineering rediscovering context that already exists in delivery history or the codebase. I started designing an AI-assisted workflow that brings that evidence together before sizing — without asking AI to estimate the work.
         </p>
       </div>
     </div>
@@ -2576,12 +2574,10 @@
       <div class="panel">
         <div class="artifact__label">02 · What I started building</div>
 
-        <h3>An evidence brief before the sizing conversation.</h3>
+        <h3>An AI-assisted evidence brief before the sizing conversation.</h3>
 
         <p>
-          The workflow looks for genuinely comparable Azure DevOps work and relevant
-          technical signals, then summarizes what may be useful for Engineering to validate
-          before assigning an estimate.
+          The workflow uses AI to help find and compare relevant Azure DevOps work, review available technical context, and synthesize useful signals into a brief that Engineering can validate before assigning an estimate.
         </p>
       </div>
     </div>
@@ -2606,19 +2602,17 @@
       <div class="panel">
         <div class="artifact__label">The boundary</div>
 
-        <h3>The aide deliberately stops before the estimate.</h3>
+        <h3>AI supports the investigation. Engineering still estimates.</h3>
 
         <p>
-          It can organize evidence and surface questions, but feasibility, implementation
-          approach and sizing remain Engineering decisions. The goal is a better-informed
-          conversation, not an AI-generated story point.
+          AI can help search, compare and synthesize the available evidence, but it does not assign story points or decide implementation complexity. Engineering validates the technical context, determines the approach and owns the estimate.
         </p>
       </div>
     </div>
 
     <div class="artifact-grid">
       <div class="artifact artifact--wide">
-        <div class="artifact__label">Estimator Aide workflow</div>
+        <div class="artifact__label">Estimation Helper workflow</div>
 
         <div class="flow">
           <div class="flow__step">
@@ -2683,7 +2677,7 @@
         <h3>Make uncertainty part of the output.</h3>
 
         <p>
-          If no genuinely comparable work is found, the aide should say so.
+          If no genuinely comparable work is found, the output should say so.
           If a technical signal is only a hypothesis, it should remain a question
           for Engineering rather than being presented as an architecture fact.
         </p>
@@ -2785,7 +2779,7 @@
 
                 <tr>
                   <td><strong>Estimate</strong></td>
-                  <td>Not assigned by the aide. Engineering sizes after reviewing the evidence.</td>
+                  <td>Not assigned by AI. Engineering sizes after reviewing the evidence.</td>
                 </tr>
               </tbody>
             </table>
@@ -2799,7 +2793,7 @@
     <div class="callout">
       <strong>Looking back:</strong>
       “no genuinely comparable ticket found” can be one of the most useful outputs.
-      The aide is more valuable when it exposes the limits of the available evidence
+      The agent is more valuable when it exposes the limits of the available evidence
       than when it forces a comparison just to produce an answer.
     </div>
 
@@ -2807,7 +2801,7 @@
       <div class="artifact__label">What I designed</div>
 
       <p>
-        I designed the Estimator Aide as a way to connect requirements with historical
+        I designed the estimation helper as a way to connect requirements with historical
         delivery evidence and relevant technical context before refinement — while
         deliberately keeping feasibility, implementation decisions and estimation
         with Engineering.
@@ -2827,7 +2821,7 @@
       <div class="case-artifacts__links">
 
         <a
-          href="Estimator_Aide_Evidence_Brief.pdf"
+          href="Planning_Poker_Estimation_Helper_Evidence_Brief.pdf"
           target="_blank"
           rel="noopener"
           class="artifact-link"
@@ -2835,7 +2829,7 @@
         >
           <div>
             <span class="artifact-link__type">PDF</span>
-            <strong>Estimator Aide Evidence Brief</strong>
+            <strong>Planning Poker - Estimation Helper Evidence brief</strong>
             <span>
               Comparable Azure DevOps work, technical signals, complexity indicators,
               caveats and questions for Engineering.
